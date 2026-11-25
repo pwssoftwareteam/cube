@@ -304,52 +304,58 @@
     gap: 6px;
   }
 
-  .fridge-hero-box {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    background: #fff;
-    border-radius: 10px;
-    padding: 10px;
-    border: 1px solid rgba(0,0,0,0.06);
+  .fridge-color-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    margin-bottom: 8px;
   }
 
-  .fridge-thumb {
-    width: 105px;
-    height: 125px;
-    flex-shrink: 0;
+  .fridge-color-grid.two-cols {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .fridge-color-item {
+    position: relative;
+    aspect-ratio: 4 / 5;
     border-radius: 8px;
     overflow: hidden;
-    background: #fff;
-    border: 1px solid #EAE5DC;
+    background: #FFFFFF;
     cursor: zoom-in;
+    border: 1px solid #E5DFD6;
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
-  .fridge-thumb img {
+  .fridge-color-item img {
     width: 100%;
     height: 100%;
     object-fit: contain;
     display: block;
+    padding: 4px 4px 20px;
+    transition: transform 0.25s ease;
   }
 
-  .fridge-highlights {
-    flex: 1;
-    font-size: 12px;
+  .fridge-color-item:hover img {
+    transform: scale(1.04);
+  }
+
+  .fridge-highlights-row {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     gap: 5px;
+    padding-top: 2px;
   }
 
   .hl-tag {
     display: inline-block;
-    background: #F4F1EB;
+    background: #FFFFFF;
+    border: 1px solid #E4DFD7;
     color: var(--ink);
-    padding: 3px 8px;
+    padding: 2px 7px;
     border-radius: 6px;
-    font-size: 11.5px;
+    font-size: 11px;
     font-weight: 600;
   }
 
@@ -380,7 +386,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(transparent, rgba(0,0,0,0.75));
+    background: linear-gradient(transparent, rgba(0,0,0,0.78));
     color: #fff;
     font-size: 10px;
     padding: 12px 4px 4px;
@@ -517,9 +523,9 @@
 
   .tbl-fridge-thumb {
     width: 100%;
-    height: 110px;
+    height: 76px;
     object-fit: contain;
-    border-radius: 6px;
+    border-radius: 5px;
     display: block;
     cursor: zoom-in;
     background: #fff;
@@ -832,8 +838,8 @@
   <header>
     <div class="header-top">
       <div>
-        <h1>星都匯1D14 電冰箱規格比較</h1>
-        <div class="subtitle">日立 HITACHI ・ 國際牌 Panasonic ・ 樂金 LG（共 7 款精選機型）</div>
+        <h1>星都匯1D14 電冰箱規格與全色系比較</h1>
+        <div class="subtitle">日立 HITACHI ・ 國際牌 Panasonic ・ 樂金 LG（收錄各機型全色系外觀照）</div>
       </div>
       <div class="view-toggle">
         <button class="view-btn active" id="btnFridgeCardView" onclick="switchFridgeView('card')">圖卡模式</button>
@@ -864,7 +870,7 @@
 
   <main>
     <div class="status-bar">
-      <span id="fridgeResultCount">顯示全部 7 款電冰箱（點擊圖片可放大檢視）</span>
+      <span id="fridgeResultCount">顯示全部 7 款電冰箱（點擊任一色系照片可全螢幕放大並左右切換）</span>
       <span>支援廚房預留空間檢核</span>
     </div>
 
@@ -1466,7 +1472,7 @@ function calcArea() {
   document.getElementById("resBoxNote").textContent = tile.pack.includes("片/箱") ? `規格：${tile.pack}` : `以約 ${tile.packNum} 片/箱估算`;
 }
 
-// ==================== REFRIGERATORS DATA & LOGIC ====================
+// ==================== REFRIGERATORS DATA & LOGIC (MULTI-COLOR PHOTOS) ====================
 function makeFridgeFallback(brand, model, doors, cap, colorHex) {
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="320" height="400" viewBox="0 0 320 400">
     <rect width="320" height="400" fill="#F8F7F4"/>
@@ -1490,7 +1496,13 @@ const fridgesData = [
     title: "日立 R-ZXC740KJ（旗艦電動門六門琉璃）",
     capacity: "741 L",
     capNum: 741,
-    compartments: "冷藏 392L ／ 上冷凍 42L ／ 製冰 27L ／ 下冷凍 143L ／ 蔬果 137L",
+    capFridge: "392 L",
+    capChilled: "包含於冷藏室（真空冰溫室 ±1℃）",
+    capIce: "27 L",
+    capFreezerUpper: "42 L（上層即鮮冷凍）",
+    capFreezerMain: "143 L（下層三段式）",
+    capFreezerTotal: "185 L（上42L＋下143L）",
+    capVeg: "137 L",
     doors: "六門（電動雙開門＋電動抽屜）",
     doorType: "sixdoor",
     panel: "強化琉璃（琉璃黑 XK ／ 琉璃白 XW ／ 琉璃鏡 X）",
@@ -1506,7 +1518,11 @@ const fridgesData = [
     features: "冷藏室觸控式自動雙開門、下層輕壓電動抽屜、Ru低溫白金奈米觸媒真空冰溫室（+1℃/-1℃切換）、即鮮冷藏區熱食免放涼、IoT 手機遠端遙控。",
     url: "https://hitachi-homeappliances.com.tw/products/products_03.php?pid=RZXC740KJ",
     fallbackColor: "#2E3136",
-    photo: "https://img.pchome.com.tw/cs/items/DPACGWA900BFNBZ/000007_1622787459.jpg"
+    photos: [
+      { url: "https://www.jarvis.com.tw/images/hitachi/zxc740kj/main-xk.jpg", cap: "琉璃黑 (XK)", fbColor: "#1E2022" },
+      { url: "https://www.jarvis.com.tw/images/hitachi/zxc740kj/main-xw.jpg", cap: "琉璃白 (XW)", fbColor: "#F5F5F5" },
+      { url: "https://www.sanjing3c.com.tw/data/images/202605/TRZXC740KJX.jpg", cap: "琉璃鏡 (X)", fbColor: "#A9AEB3" }
+    ]
   },
   {
     id: 2,
@@ -1516,7 +1532,13 @@ const fridgesData = [
     title: "日立 R-GG670YJ（新款 65cm 薄型六門琉璃）",
     capacity: "662 L",
     capNum: 662,
-    compartments: "冷藏 344L ／ 上冷凍 31L ／ 製冰 29L ／ 下冷凍 134L ／ 蔬果 124L",
+    capFridge: "344 L",
+    capChilled: "包含於冷藏室（白金真空冰溫室 -1℃）",
+    capIce: "29 L",
+    capFreezerUpper: "31 L（上層即鮮冷凍）",
+    capFreezerMain: "134 L（下層三段式）",
+    capFreezerTotal: "165 L（上31L＋下134L）",
+    capVeg: "124 L",
     doors: "六門（1:1對開冷藏＋兩側隱藏把手抽屜）",
     doorType: "sixdoor",
     panel: "強化琉璃（紫霧琉璃鏡 XM ／ 琉璃黑 XK ／ 琉璃白 XW）",
@@ -1532,7 +1554,12 @@ const fridgesData = [
     features: "2025/2026 新款薄壁美學設計，65cm 深度完美貼合系統櫥櫃；搭載約 0.8 氣壓白金真空冰溫室（-1℃不結凍）、約 2℃ 獨立鎖濕冷藏與雙冷卻器系統。",
     url: "https://hitachi-homeappliances.com.tw/products/products_03.php?pid=RGG670YJ",
     fallbackColor: "#484452",
-    photo: "https://www.3uo.tw/wp-content/uploads/RGG670YJ.jpg"
+    photos: [
+      { url: "https://www.3uo.tw/wp-content/uploads/RGG670YJ.jpg", cap: "紫霧琉璃鏡 (XM)", fbColor: "#5C5668" },
+      { url: "https://www.qkshopping.com.tw/wp-content/uploads/2024/06/RGG670TJ.jpg", cap: "三色實機對照 (XM/XK/XW)", fbColor: "#3A3B3E" },
+      { url: "https://assets.kela.com.tw/images/c9fa1bf2ff4f678119c497ccc46cf3c8.png", cap: "琉璃白 (XW)", fbColor: "#F5F5F5" },
+      { url: "https://www.fuchia.tw/v2/data/media/e/4e6025e2e805ff6bc57bbdc3567798fb/fd334109fe70b6b385b1d45ac5a5f2ba_l.jpg", cap: "對開內裝空間配置", fbColor: "#EAECEF" }
+    ]
   },
   {
     id: 3,
@@ -1542,7 +1569,13 @@ const fridgesData = [
     title: "日立 R-GG670TJ（65cm 薄型六門琉璃）",
     capacity: "662 L",
     capNum: 662,
-    compartments: "冷藏 344L ／ 上冷凍 31L ／ 製冰 29L ／ 下冷凍 134L ／ 蔬果 124L",
+    capFridge: "344 L",
+    capChilled: "包含於冷藏室（白金真空冰溫室 -1℃）",
+    capIce: "29 L",
+    capFreezerUpper: "31 L（上層即鮮冷凍）",
+    capFreezerMain: "134 L（下層三段式）",
+    capFreezerTotal: "165 L（上31L＋下134L）",
+    capVeg: "124 L",
     doors: "六門（1:1對開冷藏＋兩側隱藏把手抽屜）",
     doorType: "sixdoor",
     panel: "強化琉璃（紫霧琉璃鏡 XM ／ 琉璃黑 XK ／ 琉璃白 XW）",
@@ -1558,7 +1591,11 @@ const fridgesData = [
     features: "R-GG670YJ 的前一代同尺寸姐妹機，具備 65cm 淺型機身、1:1 對開門比例與黑化質感層架，內建真空睡眠冰溫室與白金蔬果睡眠保鮮室（耗電量略高於 YJ 款）。",
     url: "https://hitachi-homeappliances.com.tw/products/products_feature.php?pid=RGG670TJ",
     fallbackColor: "#3D3A47",
-    photo: "https://hitachi-homeappliances.com.tw/upload/products/pgroup23502408100348.jpg"
+    photos: [
+      { url: "https://shop.kmb.com.tw/wp-content/uploads/2026/03/rgg670tj-xm-1-430x430.jpg", cap: "紫霧琉璃鏡 (XM)", fbColor: "#5C5668" },
+      { url: "https://blog.fuchia.tw/wp-content/uploads/2024/05/RGG670TJ%E9%BB%91%E8%89%B2-657x1024.jpg", cap: "琉璃黑實機 (XK)", fbColor: "#1F2124" },
+      { url: "https://img.pchome.com.tw/cs/items/DMBM1PA900HKKW3/000001_1775138577.jpg", cap: "琉璃白 (XW)", fbColor: "#F5F5F5" }
+    ]
   },
   {
     id: 4,
@@ -1568,7 +1605,13 @@ const fridgesData = [
     title: "Panasonic NR-F653WX（日製無邊框六門玻璃）",
     capacity: "650 L",
     capNum: 650,
-    compartments: "冷藏 314L（含-3℃微凍結21L）／ 製冰 24L ／ 新鮮急凍結 33L ／ 冷凍 123L ／ 蔬果 135L",
+    capFridge: "335 L（含-3℃微凍結室 21L）",
+    capChilled: "21 L（獨立 -3℃ 微凍結室）",
+    capIce: "24 L",
+    capFreezerUpper: "33 L（新鮮急凍結室）",
+    capFreezerMain: "123 L（下層冷凍室）",
+    capFreezerTotal: "156 L（急凍33L＋下冷凍123L）",
+    capVeg: "135 L",
     doors: "六門（100%全開式抽屜設計）",
     doorType: "sixdoor",
     panel: "無邊框鏡面/霧面玻璃（鑽石黑 X1 ／ 霧晶灰 H1 ／ 霧晶白 W1）",
@@ -1584,7 +1627,10 @@ const fridgesData = [
     features: "在 75cm 窄寬度內創造 650L 大容量，上置式變頻壓縮機釋放底部空間；搭載全幅抑霜鮮凍、新鮮急凍結室、-3℃ 微凍結與 IoT 智慧聯網。",
     url: "https://www.panasonic.com/tw/consumer/refrigerator/six-door/nr-f653wx.html",
     fallbackColor: "#EAECEF",
-    photo: "https://img.pchome.com.tw/cs/items/DPACHEA900KO32A/000001_1793951122.jpg"
+    photos: [
+      { url: "https://www.3uo.tw/wp-content/uploads/NR-F653WX1.jpg", cap: "三色全覽 (X1黑/H1灰/W1白)", fbColor: "#3A3C40" },
+      { url: "https://img.pchome.com.tw/cs/items/DPACHEA900KO32A/000001_1793951122.jpg", cap: "霧晶白 (W1)", fbColor: "#F4F5F7" }
+    ]
   },
   {
     id: 5,
@@ -1594,7 +1640,13 @@ const fridgesData = [
     title: "Panasonic NR-F603WX（68.5cm 窄身日製六門）",
     capacity: "600 L",
     capNum: 600,
-    compartments: "冷藏 312L（含-3℃微凍結19L）／ 製冰 19L ／ 新鮮急凍 31L ／ 冷凍 113L ／ 蔬果 125L",
+    capFridge: "312 L（含-3℃微凍結室 19L）",
+    capChilled: "19 L（獨立 -3℃ 微凍結室）",
+    capIce: "19 L",
+    capFreezerUpper: "31 L（新鮮急凍結室）",
+    capFreezerMain: "113 L（下層冷凍室）",
+    capFreezerTotal: "144 L（急凍31L＋下冷凍113L）",
+    capVeg: "125 L",
     doors: "六門（100%全開式抽屜設計）",
     doorType: "sixdoor",
     panel: "無邊框鏡面/霧面玻璃（鑽石黑 X1 ／ 霧晶灰 H1 ／ 霧晶白 W1）",
@@ -1610,7 +1662,10 @@ const fridgesData = [
     features: "與 NR-F653WX 同系列機能，但寬度縮減至 68.5 cm，特別適合預留寬度 70～75 cm 的現代廚房；年耗電僅 276 度，為 7 款中最省電機種。",
     url: "https://www.panasonic.com/tw/consumer/refrigerator/six-door/nr-f603wx.html",
     fallbackColor: "#DCE0E5",
-    photo: "https://www.fuchia.tw/v2/data/media/7/292e64ad6e251d013812b67e80ae6601/ab1c5ef9b7171709a1e020eb22ee8aaa_l.jpg"
+    photos: [
+      { url: "https://img.pchome.com.tw/cs/items/DPAC1TA900KHSKK/000001_1793781444.jpg", cap: "鑽石黑 (X1)", fbColor: "#232528" },
+      { url: "https://www.fuchia.tw/v2/data/media/7/292e64ad6e251d013812b67e80ae6601/ab1c5ef9b7171709a1e020eb22ee8aaa_l.jpg", cap: "全系列三色 (X1/H1/W1)", fbColor: "#DCE0E5" }
+    ]
   },
   {
     id: 6,
@@ -1620,10 +1675,16 @@ const fridgesData = [
     title: "Panasonic NR-D541PG（四門霧面玻璃＋冰水霸）",
     capacity: "540 L",
     capNum: 540,
-    compartments: "冷藏 293L ／ -3℃ 微凍結室 61L ／ 冷凍室 186L",
+    capFridge: "293 L（含智慧保濕蔬果抽屜）",
+    capChilled: "61 L（中層獨立 -3℃ 微凍結室）",
+    capIce: "內置自動製冰盒（位於冷凍室）",
+    capFreezerUpper: "無獨立上層（由中層 61L 微凍結取代）",
+    capFreezerMain: "186 L（下層大容量冷凍室）",
+    capFreezerTotal: "186 L（另加中層微凍結 61L）",
+    capVeg: "包含於冷藏室（智慧保濕蔬果抽屜）",
     doors: "四門（上對開冷藏 ＋ 中抽屜微凍結 ＋ 下單開冷凍）",
     doorType: "fourdoor",
-    panel: "無邊框霧面玻璃（極緻灰 H1）",
+    panel: "無邊框霧面玻璃（僅推出極緻灰 H1 單色）",
     dimensions: "寬 75.0 × 深 75.0 × 高 189.0 cm",
     dimW: 75.0, dimD: 75.0, dimH: 189.0,
     clearance: "左右各 2.0 cm、上方 5.0 cm、後方 5.0 cm",
@@ -1633,10 +1694,13 @@ const fridgesData = [
     energy: "新 1 級能效（EF 26.3 ／ 年耗電 312 度）",
     priceRange: "約 NT$50,850 ～ $54,900",
     highlights: ["門外直接取用冰水霸", "61L 超大 -3℃ 微凍結", "霧面玻璃抗指紋工藝", "5萬級距高性價比"],
-    features: "輕奢品味系列四門冰箱，門扉內建「冰水霸」免開門即可取用冰涼飲水；具備獨立 61L -3℃ 微凍結室、新鮮急凍結與 nanoe™ X 抑菌。",
+    features: "輕奢品味系列四門冰箱（全系列單一極緻灰色），門扉內建「冰水霸」免開門即可取用冰涼飲水；具備獨立 61L -3℃ 微凍結室、新鮮急凍結與 nanoe™ X 抑菌。",
     url: "https://www.panasonic.com/tw/consumer/refrigerator/four-door/nr-d541pg.html",
     fallbackColor: "#5C6066",
-    photo: "https://i1.momoshop.com.tw/1792121163/goodsimg/0011/961/671/11961671_R_m.webp"
+    photos: [
+      { url: "https://i1.momoshop.com.tw/1792121163/goodsimg/0011/961/671/11961671_R_m.webp", cap: "極緻灰外觀 (H1單色)", fbColor: "#5C6066" },
+      { url: "https://lifebank.tw/wp-content/uploads/2023/11/panasonic%E9%9B%BB%E5%86%B0%E7%AE%B1-22.jpg", cap: "廚房實景與冰水霸門扉", fbColor: "#5C6066" }
+    ]
   },
   {
     id: 7,
@@ -1646,10 +1710,16 @@ const fridgesData = [
     title: "LG GV-NB61BG（曜石黑鏡面智慧變頻四門）",
     capacity: "619 L",
     capNum: 619,
-    compartments: "冷藏 443L ／ 冷凍 176L（含隨選變溫保鮮室）",
+    capFridge: "443 L（含雙層蔬果保鮮抽屜）",
+    capChilled: "包含於冷藏室（FRESHConverter™ 隨選變溫室）",
+    capIce: "移動式旋轉製冰盒（位於冷凍室）",
+    capFreezerUpper: "無獨立上層（雙開多層抽屜冷凍）",
+    capFreezerMain: "176 L（下層雙開冷凍室）",
+    capFreezerTotal: "176 L",
+    capVeg: "包含於冷藏室（雙層保鮮蔬果箱）",
     doors: "四門（上對開冷藏 ＋ 下雙開冷凍）",
     doorType: "fourdoor",
-    panel: "曜石黑鏡面玻璃",
+    panel: "曜石黑鏡面玻璃（僅推出曜石黑單色）",
     dimensions: "寬 83.5 × 深 73.6 × 高 186.0 cm",
     dimW: 83.5, dimD: 73.6, dimH: 186.0,
     clearance: "左右各 2.0 cm、上方 5.0 cm、後方 5.0 cm",
@@ -1659,10 +1729,13 @@ const fridgesData = [
     energy: "第 1 級能效（年耗電約 336 度）",
     priceRange: "約 NT$49,500 ～ $56,900",
     highlights: ["DoorCooling+™ 四方吹冷流", "LinearCooling™ 精準溫控", "FRESHConverter™ 變溫室", "壓縮機 10 年保固"],
-    features: "美型曜石黑鏡面四門設計，上方冷流瀑布快速冷卻門邊飲品；內部配有隨選變溫保鮮室（可調肉類/魚類/蔬果模式）與移動式自動製冰器，支援 ThinQ Wi-Fi 遠控。",
+    features: "美型曜石黑鏡面四門設計（全系列單一曜石黑色），上方冷流瀑布快速冷卻門邊飲品；內部配有隨選變溫保鮮室與移動式自動製冰器，支援 ThinQ Wi-Fi 遠控。",
     url: "https://www.lg.com/tw/refrigerators/multi-door/gv-nb61bg/",
     fallbackColor: "#222426",
-    photo: "https://www.3uo.tw/wp-content/uploads/GV-NB61BG.jpg"
+    photos: [
+      { url: "https://www.3uo.tw/wp-content/uploads/GV-NB61BG.jpg", cap: "曜石黑鏡面外觀（單色）", fbColor: "#222426" },
+      { url: "https://b2eimg.pxec.com.tw/00329850/058e1d79ef72418cb28d59b0122f6c22.jpg", cap: "四門開門內裝配置", fbColor: "#222426" }
+    ]
   }
 ];
 
@@ -1690,7 +1763,17 @@ function renderFridgeCards(list) {
   }
 
   container.innerHTML = list.map(f => {
-    const fb = makeFridgeFallback(f.brand, f.model, f.doors.split("（")[0], f.capacity, f.fallbackColor);
+    const gridClass = f.photos.length <= 2 ? "fridge-color-grid two-cols" : "fridge-color-grid";
+    const photosHtml = f.photos.map((p, idx) => {
+      const fb = makeFridgeFallback(f.brand, f.model, p.cap, f.capacity, p.fbColor || f.fallbackColor);
+      return `
+        <div class="fridge-color-item" onclick="openFridgeLightbox(${f.id}, ${idx})">
+          <img src="${p.url}" alt="${p.cap}" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='${fb}';">
+          <div class="photo-cap">${p.cap}</div>
+        </div>
+      `;
+    }).join("");
+
     const hlHtml = f.highlights.map(h => `<span class="hl-tag">✓ ${h}</span>`).join("");
 
     return `
@@ -1705,13 +1788,15 @@ function renderFridgeCards(list) {
         </div>
 
         <div class="photo-gallery-wrap">
-          <div class="fridge-hero-box">
-            <div class="fridge-thumb" onclick="openSingleLightbox('${f.photo}', '${f.title}', '${fb}')">
-              <img src="${f.photo}" alt="${f.model}" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='${fb}';">
-            </div>
-            <div class="fridge-highlights">
-              ${hlHtml}
-            </div>
+          <div class="gallery-hint">
+            <span>全色系與實機圖集（共 ${f.photos.length} 張）</span>
+            <span>點擊任一張放大</span>
+          </div>
+          <div class="${gridClass}">
+            ${photosHtml}
+          </div>
+          <div class="fridge-highlights-row">
+            ${hlHtml}
           </div>
         </div>
 
@@ -1729,8 +1814,14 @@ function renderFridgeCards(list) {
             <span class="spec-v">${f.doors} ｜ ${f.panel}</span>
           </div>
           <div class="spec-box full">
-            <span class="spec-k">各室容量分配</span>
-            <span class="spec-v" style="font-weight:500;">${f.compartments}</span>
+            <span class="spec-k" style="margin-bottom:5px;">各室容量明細（總計 ${f.capacity}）</span>
+            <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:4px 10px;font-size:12px;">
+              <div>• <strong>冷藏室：</strong>${f.capFridge}</div>
+              <div>• <strong>總冷凍：</strong>${f.capFreezerTotal}</div>
+              <div>• <strong>蔬果室：</strong>${f.capVeg}</div>
+              <div>• <strong>製冰室：</strong>${f.capIce}</div>
+              <div style="grid-column:1/-1;color:var(--accent);font-size:11.5px;">• <strong>冰溫/微凍結：</strong>${f.capChilled}</div>
+            </div>
           </div>
           <div class="spec-box full">
             <span class="spec-k">保鮮與核心機能</span>
@@ -1757,12 +1848,15 @@ function renderFridgeTable(list) {
   const headCols = list.map(f => `<th>${f.id}. ${f.model}</th>`).join("");
   const rows = [
     {
-      label: "產品外觀圖",
+      label: "全色系外觀圖",
       cells: list.map(f => {
-        const fb = makeFridgeFallback(f.brand, f.model, f.doors.split("（")[0], f.capacity, f.fallbackColor);
+        const thumbs = f.photos.map((p, idx) => {
+          const fb = makeFridgeFallback(f.brand, f.model, p.cap, f.capacity, p.fbColor || f.fallbackColor);
+          return `<img class="tbl-fridge-thumb" src="${p.url}" alt="${p.cap}" title="${p.cap}" referrerpolicy="no-referrer" onclick="openFridgeLightbox(${f.id}, ${idx})" onerror="this.onerror=null;this.src='${fb}';">`;
+        }).join("");
         return `<td>
-          <img class="tbl-fridge-thumb" src="${f.photo}" alt="${f.model}" referrerpolicy="no-referrer" onclick="openSingleLightbox('${f.photo}', '${f.title}', '${fb}')" onerror="this.onerror=null;this.src='${fb}';">
-          <div style="font-size:11px;color:var(--muted);margin-top:4px;text-align:center;">點圖放大</div>
+          <div class="tbl-thumbs">${thumbs}</div>
+          <div style="font-size:11px;color:var(--muted);margin-top:4px;text-align:center;">共 ${f.photos.length} 張（點圖放大）</div>
         </td>`;
       }).join("")
     },
@@ -1772,7 +1866,13 @@ function renderFridgeTable(list) {
     { label: "建議散熱空間", cells: list.map(f => `<td style="font-size:11.5px;">${f.clearance}</td>`).join("") },
     { label: "門數設計", cells: list.map(f => `<td>${f.doors}</td>`).join("") },
     { label: "外觀材質/色系", cells: list.map(f => `<td>${f.panel}</td>`).join("") },
-    { label: "各室容量分配", cells: list.map(f => `<td style="font-size:11.5px;">${f.compartments}</td>`).join("") },
+    { label: "冷藏室容量", cells: list.map(f => `<td><strong>${f.capFridge}</strong></td>`).join("") },
+    { label: "冰溫 / 微凍結室", cells: list.map(f => `<td style="font-size:11.5px;color:var(--accent);">${f.capChilled}</td>`).join("") },
+    { label: "總冷凍室容量", cells: list.map(f => `<td><strong>${f.capFreezerTotal}</strong></td>`).join("") },
+    { label: "上層冷凍 / 急凍", cells: list.map(f => `<td style="font-size:11.5px;">${f.capFreezerUpper}</td>`).join("") },
+    { label: "下層主冷凍室", cells: list.map(f => `<td style="font-size:11.5px;">${f.capFreezerMain}</td>`).join("") },
+    { label: "製冰室容量", cells: list.map(f => `<td style="font-size:11.5px;">${f.capIce}</td>`).join("") },
+    { label: "蔬果室容量", cells: list.map(f => `<td><strong>${f.capVeg}</strong></td>`).join("") },
     { label: "能效與耗電", cells: list.map(f => `<td>${f.energy}</td>`).join("") },
     { label: "核心保鮮機能", cells: list.map(f => `<td style="font-size:11.5px;">${f.features}</td>`).join("") },
     { label: "市場參考價位", cells: list.map(f => `<td><strong>${f.priceRange}</strong></td>`).join("") },
@@ -1796,7 +1896,8 @@ function renderFridgeTable(list) {
 
 function updateFridgeUI() {
   const filtered = getFilteredFridges();
-  document.getElementById("fridgeResultCount").textContent = `顯示 ${filtered.length} / 7 款電冰箱（點擊圖片可放大檢視）`;
+  const totalPhotos = filtered.reduce((acc, f) => acc + f.photos.length, 0);
+  document.getElementById("fridgeResultCount").textContent = `顯示 ${filtered.length} / 7 款電冰箱（共 ${totalPhotos} 張色系圖，點擊可放大）`;
   renderFridgeCards(filtered);
   renderFridgeTable(filtered);
 }
@@ -1835,16 +1936,16 @@ function switchFridgeView(view) {
   }
 }
 
-function openSingleLightbox(url, title, fallbackUrl) {
-  lbPhotos = [{ url: url, cap: title }];
-  lbIndex = 0;
-  lbTitle = title;
-  lbFallback = fallbackUrl;
-  document.getElementById("lightboxNav").style.display = "none";
-  const img = document.getElementById("lightboxImg");
-  img.onerror = function() { this.onerror = null; this.src = fallbackUrl; };
-  img.src = url;
-  document.getElementById("lightboxCap").textContent = title;
+function openFridgeLightbox(fridgeId, photoIdx) {
+  const fridge = fridgesData.find(f => f.id === fridgeId);
+  if (!fridge) return;
+  lbPhotos = fridge.photos;
+  lbIndex = photoIdx;
+  lbTitle = fridge.model;
+  const p = lbPhotos[lbIndex];
+  lbFallback = makeFridgeFallback(fridge.brand, fridge.model, p.cap, fridge.capacity, p.fbColor || fridge.fallbackColor);
+  document.getElementById("lightboxNav").style.display = lbPhotos.length > 1 ? "flex" : "none";
+  updateLightboxContent();
   document.getElementById("lightbox").classList.add("open");
 }
 
@@ -1855,7 +1956,6 @@ function checkFridgeFit() {
 
   const container = document.getElementById("fitResultList");
   container.innerHTML = fridgesData.map(f => {
-    // Minimum side clearance: 0.5cm each side (1cm total) for JP 6-door, 2cm each side (4cm total) for 4-door
     const sideMargin = f.doorType === "sixdoor" ? 1.0 : 4.0;
     const topMargin = 5.0;
     const fitW = w >= (f.dimW + sideMargin);
