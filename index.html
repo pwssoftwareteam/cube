@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>六角磚產品規格與實景選購比較手冊</title>
+<title>六角磚產品規格與官網全圖鑑比較手冊</title>
 <style>
   :root {
     --bg: #F6F4F0;
@@ -36,7 +36,6 @@
     overflow-x: hidden;
   }
 
-  /* Header */
   header {
     background: linear-gradient(135deg, #2B3A39 0%, #3D5A58 100%);
     color: #fff;
@@ -95,7 +94,6 @@
     box-shadow: 0 1px 4px rgba(0,0,0,0.15);
   }
 
-  /* Filter Bar */
   .filter-bar {
     background: #fff;
     border-bottom: 1px solid var(--line);
@@ -151,7 +149,6 @@
     font-weight: 600;
   }
 
-  /* Main Container */
   main {
     max-width: 1120px;
     margin: 16px auto;
@@ -168,7 +165,6 @@
     padding: 0 2px;
   }
 
-  /* Card Grid */
   .cards-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -239,14 +235,26 @@
     text-align: right;
   }
 
-  /* 3-Photo Strip inside Card */
-  .photo-strip {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 6px;
+  /* 3-Column Photo Gallery Grid inside Card (supports unlimited photos!) */
+  .photo-gallery-wrap {
     padding: 10px 12px;
     background: #FAF8F5;
     border-bottom: 1px solid #F1EDE6;
+  }
+
+  .gallery-hint {
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
   }
 
   .photo-item {
@@ -276,17 +284,16 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(transparent, rgba(0,0,0,0.72));
+    background: linear-gradient(transparent, rgba(0,0,0,0.75));
     color: #fff;
     font-size: 10px;
-    padding: 12px 5px 4px;
+    padding: 12px 4px 4px;
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
 
-  /* Specs Table inside Card */
   .spec-list {
     padding: 12px 16px 14px;
     display: grid;
@@ -365,8 +372,8 @@
     border-bottom: 1px solid var(--line);
     border-right: 1px solid var(--line);
     vertical-align: top;
-    width: 175px;
-    max-width: 195px;
+    width: 185px;
+    max-width: 200px;
   }
 
   .comp-table th:first-child,
@@ -396,18 +403,22 @@
     z-index: 15;
   }
 
+  .tbl-thumbs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px;
+  }
+
   .tbl-thumb {
     width: 100%;
-    height: 95px;
+    height: 68px;
     object-fit: cover;
-    border-radius: 6px;
+    border-radius: 5px;
     display: block;
-    margin-bottom: 5px;
     cursor: zoom-in;
     background: #EAE5DC;
   }
 
-  /* Calculator & Vendor Section */
   .tool-section {
     margin-top: 26px;
     display: grid;
@@ -514,7 +525,7 @@
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(18, 20, 23, 0.92);
+    background: rgba(18, 20, 23, 0.94);
     z-index: 100;
     flex-direction: column;
     justify-content: center;
@@ -526,7 +537,7 @@
 
   .lightbox img {
     max-width: 96vw;
-    max-height: 78vh;
+    max-height: 75vh;
     border-radius: 10px;
     object-fit: contain;
     box-shadow: 0 8px 30px rgba(0,0,0,0.5);
@@ -538,6 +549,22 @@
     margin-top: 12px;
     text-align: center;
     max-width: 90vw;
+  }
+
+  .lightbox-nav {
+    display: flex;
+    gap: 16px;
+    margin-top: 12px;
+  }
+
+  .lb-nav-btn {
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    cursor: pointer;
   }
 
   .lightbox-close {
@@ -560,8 +587,8 @@
 <header>
   <div class="header-top">
     <div>
-      <h1>六角磚選購與規格比較手冊</h1>
-      <div class="subtitle">富錥建材 ・ 鏷城磁磚 ・ 喜地磁磚（共 10 款 HTTPS 官網實圖彙整）</div>
+      <h1>六角磚選購與官網全圖鑑比較手冊</h1>
+      <div class="subtitle">完整收錄 10 款六角磚所有官網色卡、模花與空間實景圖</div>
     </div>
     <div class="view-toggle">
       <button class="view-btn active" id="btnCardView" onclick="switchView('card')">圖卡模式</button>
@@ -592,8 +619,8 @@
 
 <main>
   <div class="status-bar">
-    <span id="resultCount">顯示全部 10 款六角磚（點擊任一照片可放大檢視）</span>
-    <span>全數 HTTPS 安全連線圖檔</span>
+    <span id="resultCount">顯示全部 10 款六角磚（點擊照片可全螢幕放大並左右切換）</span>
+    <span>全數收錄官網完整圖集</span>
   </div>
 
   <!-- Card View -->
@@ -677,15 +704,18 @@
   </div>
 </main>
 
-<!-- Lightbox -->
-<div class="lightbox" id="lightbox" onclick="closeLightbox()">
-  <button class="lightbox-close" onclick="closeLightbox()">×</button>
-  <img id="lightboxImg" src="" alt="" referrerpolicy="no-referrer">
-  <div class="lightbox-caption" id="lightboxCap"></div>
+<!-- Lightbox with Prev/Next navigation -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <button class="lightbox-close" onclick="closeLightbox(event, true)">×</button>
+  <img id="lightboxImg" src="" alt="" referrerpolicy="no-referrer" onclick="event.stopPropagation()">
+  <div class="lightbox-caption" id="lightboxCap" onclick="event.stopPropagation()"></div>
+  <div class="lightbox-nav" onclick="event.stopPropagation()">
+    <button class="lb-nav-btn" onclick="stepLightbox(-1)">‹ 上一張</button>
+    <button class="lb-nav-btn" onclick="stepLightbox(1)">下一張 ›</button>
+  </div>
 </div>
 
 <script>
-// Generate clean SVG fallback data URI if an external server blocks cross-origin embedding
 function makeHexFallback(c1, c2, c3, label) {
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
     <rect width="400" height="400" fill="#EFECE6"/>
@@ -722,9 +752,17 @@ const tilesData = [
     url: "https://www.fuyu-tiles.com/products/%E5%8D%A1%E8%8E%AB%E7%88%BE%E5%85%AD%E8%A7%92%E7%A3%9A/",
     fallbackColors: ["#F3F1ED", "#DFD3C3", "#8D7360"],
     photos: [
-      { url: "https://www.fuyu-tiles.com/wp-content/uploads/2025/06/Y024CA201-1.webp", cap: "Y024CA201 素白單片" },
-      { url: "https://www.fuyu-tiles.com/wp-content/uploads/2025/06/Y024CA202-1.webp", cap: "Y024CA202 暖米單片" },
-      { url: "https://www.fuyu-tiles.com/wp-content/uploads/2025/06/Y024CA20R-1.webp", cap: "Y024CA20R 隨機模花" }
+      { url: "https://www.fuyu-tiles.com/wp-content/uploads/2026/09/line_oa_chat_260903_102542_group_8.webp", cap: "官網實景鋪貼（浴室混拼）" },
+      { url: "https://www.fuyu-tiles.com/wp-content/uploads/2026/09/line_oa_chat_260903_102542_group_1.webp", cap: "官網花磚模面特寫" },
+      { url: "https://www.fuyu-tiles.com/wp-content/uploads/2025/06/Y024CA201-1.webp", cap: "Y024CA201 白" },
+      { url: "https://www.fuyu-tiles.com/wp-content/uploads/2025/06/Y024CA202-1.webp", cap: "Y024CA202 米" },
+      { url: "https://www.fuyu-tiles.com/wp-content/uploads/2025/06/Y024CA203-1.webp", cap: "Y024CA203 棕" },
+      { url: "https://www.fuyu-tiles.com/wp-content/uploads/2025/06/Y024CA20R-1.webp", cap: "Y024CA20R 模花1" },
+      { url: "https://www.fuyu-tiles.com/wp-content/uploads/2025/06/Y024CA20R-2.webp", cap: "Y024CA20R 模花2" },
+      { url: "https://www.fuyu-tiles.com/wp-content/uploads/2025/06/Y024CA20R-3.webp", cap: "Y024CA20R 模花3" },
+      { url: "https://www.fuyu-tiles.com/wp-content/uploads/2025/06/Y024CA20R-4.webp", cap: "Y024CA20R 模花4" },
+      { url: "https://www.fuyu-tiles.com/wp-content/uploads/2025/06/Y024CA20R-5.webp", cap: "Y024CA20R 模花5" },
+      { url: "https://www.fuyu-tiles.com/wp-content/uploads/2025/06/Y024CA20R-6.webp", cap: "Y024CA20R 模花6" }
     ]
   },
   {
@@ -747,9 +785,10 @@ const tilesData = [
     url: "https://www.fuyu-tiles.com/products/%E5%85%B5%E5%BA%AB%E5%85%AD%E8%A7%92%E7%A3%9A/",
     fallbackColors: ["#9EA2A5", "#5F6368", "#35383B"],
     photos: [
+      { url: "https://www.fuyu-tiles.com/wp-content/uploads/2025/06/%E5%85%B5%E5%BA%AB%E7%B3%BB%E5%88%97-Y555D3Y555D2-%E5%BA%AD%E9%99%A2%E7%A9%BA%E9%96%93-1024x683.webp", cap: "官網庭園空間實景" },
       { url: "https://www.fuyu-tiles.com/wp-content/uploads/2025/06/Y555D1.webp", cap: "Y555D1 淺灰石紋" },
       { url: "https://www.fuyu-tiles.com/wp-content/uploads/2025/06/Y555D2.webp", cap: "Y555D2 中灰石紋" },
-      { url: "https://www.fuyu-tiles.com/wp-content/uploads/2025/06/%E5%85%B5%E5%BA%AB%E7%B3%BB%E5%88%97-Y555D3Y555D2-%E5%BA%AD%E9%99%A2%E7%A9%BA%E9%96%93-1024x683.webp", cap: "官網實景鋪貼效果" }
+      { url: "https://www.fuyu-tiles.com/wp-content/uploads/2025/06/Y555D3.webp", cap: "Y555D3 深黑灰石紋" }
     ]
   },
   {
@@ -773,8 +812,11 @@ const tilesData = [
     fallbackColors: ["#A69B8D", "#7D7063", "#8E8D8A"],
     photos: [
       { url: "https://www.fuyu-tiles.com/wp-content/uploads/2025/06/%E6%96%87%E8%97%9D%E5%BE%A9%E8%88%88%E5%85%AD%E8%A7%92%E7%A3%9A%E7%B3%BB%E5%88%97-%E7%89%B9%E6%99%AF.webp", cap: "官網地坪特景混拼" },
-      { url: "https://www.fuyu-tiles.com/wp-content/uploads/2025/06/%E6%96%87%E8%97%9D%E5%BE%A9%E8%88%88%E5%85%AD%E8%A7%92%E7%A3%9A%E7%B3%BB%E5%88%97-%E4%B8%BB%E9%A1%8C%E7%89%86.webp", cap: "官網主題牆鋪貼" },
-      { url: "https://www.fuyu-tiles.com/wp-content/uploads/2025/06/Y555A1F-F1.webp", cap: "Y555A1F 復古花磚單片" }
+      { url: "https://www.fuyu-tiles.com/wp-content/uploads/2025/06/%E6%96%87%E8%97%9D%E5%BE%A9%E8%88%88%E5%85%AD%E8%A7%92%E7%A3%9A%E7%B3%BB%E5%88%97-%E4%B8%BB%E9%A1%8C%E7%89%86.webp", cap: "官網主題牆實景" },
+      { url: "https://www.fuyu-tiles.com/wp-content/uploads/2025/06/Y555A1-1.webp", cap: "Y555A1 素磚單片" },
+      { url: "https://www.fuyu-tiles.com/wp-content/uploads/2025/06/Y555A1F-F1.webp", cap: "Y555A1F 隨機花磚1" },
+      { url: "https://www.fuyu-tiles.com/wp-content/uploads/2025/06/Y555A2-1.webp", cap: "Y555A2 素磚單片" },
+      { url: "https://www.fuyu-tiles.com/wp-content/uploads/2025/06/Y555A2F-F2.webp", cap: "Y555A2F 隨機花磚2" }
     ]
   },
   {
@@ -797,9 +839,11 @@ const tilesData = [
     url: "https://www.fuyu-tiles.com/products/%E9%87%91%E5%85%83%E7%9F%B3%E5%85%AD%E8%A7%92%E7%A3%9A/",
     fallbackColors: ["#D7C5AC", "#4F667A", "#8B939A"],
     photos: [
+      { url: "https://www.fuyu-tiles.com/wp-content/uploads/2025/06/%E5%85%AD%E8%A7%92%E7%A3%9A%E7%B3%BB%E5%88%97-%E6%B5%B4%E5%AE%A4.webp", cap: "官網衛浴空間實景" },
       { url: "https://www.fuyu-tiles.com/wp-content/uploads/2025/06/J333A1-1.webp", cap: "J333A1 暖米岩紋" },
       { url: "https://www.fuyu-tiles.com/wp-content/uploads/2025/06/J333A2-1.webp", cap: "J333A2 冷灰岩紋" },
-      { url: "https://www.fuyu-tiles.com/wp-content/uploads/2025/06/%E5%85%AD%E8%A7%92%E7%A3%9A%E7%B3%BB%E5%88%97-%E6%B5%B4%E5%AE%A4.webp", cap: "官網衛浴空間實景" }
+      { url: "https://www.fuyu-tiles.com/wp-content/uploads/2025/06/J333A3-2.webp", cap: "J333A3 深灰藍岩紋" },
+      { url: "https://www.fuyu-tiles.com/wp-content/uploads/2025/06/J333A5-1.webp", cap: "J333A5 紅棕岩紋" }
     ]
   },
   {
@@ -822,9 +866,12 @@ const tilesData = [
     url: "https://pucheng.net.tw/products/IMP-e9ae853873ca3987",
     fallbackColors: ["#E5DDD3", "#B0A99F", "#9E7856"],
     photos: [
-      { url: "https://pucheng.net.tw/api/product-images/b52d750a-25f1-5984-654b-80dcae6ae062.jpg", cap: "官網主圖（三色木紋）" },
-      { url: "https://pucheng.net.tw/api/product-images/7f8ecbd5-ec21-2691-a799-c907eb591f7e.jpg", cap: "官網空間實景一" },
-      { url: "https://pucheng.net.tw/api/product-images/c68f84ce-9091-a2d2-b350-819cdc4c6de9.jpg", cap: "官網空間實景二" }
+      { url: "https://pucheng.net.tw/api/product-images/b52d750a-25f1-5984-654b-80dcae6ae062.jpg", cap: "官網圖1（主圖）" },
+      { url: "https://pucheng.net.tw/api/product-images/7f8ecbd5-ec21-2691-a799-c907eb591f7e.jpg", cap: "官網圖2（實景一）" },
+      { url: "https://pucheng.net.tw/api/product-images/c68f84ce-9091-a2d2-b350-819cdc4c6de9.jpg", cap: "官網圖3（實景二）" },
+      { url: "https://pucheng.net.tw/api/product-images/dcd934fb-14e6-0253-8051-14fe2b7b2c27.jpg", cap: "官網圖4（實景三）" },
+      { url: "https://pucheng.net.tw/api/product-images/1c55a639-b1a1-4922-3743-c3a7a8c67178.jpg", cap: "官網圖5（色卡一）" },
+      { url: "https://pucheng.net.tw/api/product-images/a2da51f1-73c3-8df6-775d-fde6f2419e58.jpg", cap: "官網圖6（色卡二）" }
     ]
   },
   {
@@ -847,9 +894,16 @@ const tilesData = [
     url: "https://pucheng.net.tw/products/IMP-0cf8866e140e70e2",
     fallbackColors: ["#6E8577", "#486178", "#3A3D40"],
     photos: [
-      { url: "https://pucheng.net.tw/api/product-images/06fd6e56-f147-4a3c-63be-e05bd8644e92.jpg", cap: "官網主圖（多色拼貼）" },
-      { url: "https://pucheng.net.tw/api/product-images/671c297e-3b21-a5a6-3c88-260a06f911b3.jpg", cap: "官網空間實景一" },
-      { url: "https://pucheng.net.tw/api/product-images/8f20a806-7bf5-bd90-b689-4ba4c3063730.jpg", cap: "官網空間實景二" }
+      { url: "https://pucheng.net.tw/api/product-images/06fd6e56-f147-4a3c-63be-e05bd8644e92.jpg", cap: "官網圖1（主圖）" },
+      { url: "https://pucheng.net.tw/api/product-images/671c297e-3b21-a5a6-3c88-260a06f911b3.jpg", cap: "官網圖2（實景一）" },
+      { url: "https://pucheng.net.tw/api/product-images/8f20a806-7bf5-bd90-b689-4ba4c3063730.jpg", cap: "官網圖3（實景二）" },
+      { url: "https://pucheng.net.tw/api/product-images/7efb7aa8-ab60-93a4-ecb5-cb8ed8892e4e.jpg", cap: "官網圖4（實景三）" },
+      { url: "https://pucheng.net.tw/api/product-images/675804e0-c2f3-9823-c2b2-a301e0f3fa8c.jpg", cap: "官網圖5（實景四）" },
+      { url: "https://pucheng.net.tw/api/product-images/3dd6c971-c814-d684-884c-f5f22849b916.jpg", cap: "官網圖6（色系一）" },
+      { url: "https://pucheng.net.tw/api/product-images/74994432-fe88-79f1-fa1b-1af4493a5a83.jpg", cap: "官網圖7（色系二）" },
+      { url: "https://pucheng.net.tw/api/product-images/513f956c-d060-b807-7546-736c1bcdf999.jpg", cap: "官網圖8（色系三）" },
+      { url: "https://pucheng.net.tw/api/product-images/965451ad-3a85-fb12-2d38-33afd639e48b.jpg", cap: "官網圖9（色系四）" },
+      { url: "https://pucheng.net.tw/api/product-images/9827f3b5-8e31-291a-a40e-2d1cd245d63e.jpg", cap: "官網圖10（色系五）" }
     ]
   },
   {
@@ -872,9 +926,8 @@ const tilesData = [
     url: "https://pucheng.net.tw/products/IMP-72e2d9922c14d81e",
     fallbackColors: ["#DDD4C7", "#CFC3B2", "#BFB19E"],
     photos: [
-      { url: "https://pucheng.net.tw/api/product-images/0dbd2744-9793-9380-4cc2-d15f4a3c0cf9.jpg", cap: "官網主圖（岩面米色）" },
-      { url: "https://pucheng.net.tw/api/product-images/abac6a5d-2eab-491c-a22b-fb2342dcd017.jpg", cap: "官網實景鋪貼效果" },
-      { url: "https://pucheng.net.tw/api/product-images/0dbd2744-9793-9380-4cc2-d15f4a3c0cf9.jpg", cap: "霧面岩紋細節對照" }
+      { url: "https://pucheng.net.tw/api/product-images/0dbd2744-9793-9380-4cc2-d15f4a3c0cf9.jpg", cap: "官網圖1（岩面主圖）" },
+      { url: "https://pucheng.net.tw/api/product-images/abac6a5d-2eab-491c-a22b-fb2342dcd017.jpg", cap: "官網圖2（空間實景）" }
     ]
   },
   {
@@ -898,6 +951,7 @@ const tilesData = [
     fallbackColors: ["#DFD5C5", "#D2C5B2", "#C4B59E"],
     photos: [
       { url: "https://www.ccitytile.com/data/goods/gallery/202404/1712978561458504678.jpg", cap: "CBS192211 漠岩米主圖" },
+      { url: "https://www.ccitytile.com/data/goods/gallery/202404/1712994046297096212(1).jpg", cap: "官網空間鋪貼實景" },
       { url: "https://www.ccitytile.com/data/editor/files/CBS192211-CBS192213-%E6%89%98%E8%90%8A%E5%A4%9A%E7%9F%B3%E7%B4%8B%E5%85%AD%E8%A7%92%E7%A3%9A-%E5%95%86%E5%93%81%E4%BB%8B%E7%B4%B905(1).jpg", cap: "同系列三色混拼地坪" },
       { url: "https://www.ccitytile.com/data/editor/files/CBS192211-CBS192213-%E6%89%98%E8%90%8A%E5%A4%9A%E7%9F%B3%E7%B4%8B%E5%85%AD%E8%A7%92%E7%A3%9A-%E5%95%86%E5%93%81%E4%BB%8B%E7%B4%B904.jpg", cap: "托萊多全系列三色卡" }
     ]
@@ -923,6 +977,7 @@ const tilesData = [
     fallbackColors: ["#53565A", "#3E4144", "#6B6F73"],
     photos: [
       { url: "https://www.ccitytile.com/data/editor/files/CBS192211-CBS192213-%E6%89%98%E8%90%8A%E5%A4%9A%E7%9F%B3%E7%B4%8B%E5%85%AD%E8%A7%92%E7%A3%9A-%E5%95%86%E5%93%81%E4%BB%8B%E7%B4%B904.jpg", cap: "托萊多全系列三色卡" },
+      { url: "https://www.ccitytile.com/data/goods/gallery/202404/1712994046297096212(1).jpg", cap: "官網深灰空間實景" },
       { url: "https://www.ccitytile.com/data/editor/files/CBS192211-CBS192213-%E6%89%98%E8%90%8A%E5%A4%9A%E7%9F%B3%E7%B4%8B%E5%85%AD%E8%A7%92%E7%A3%9A-%E5%95%86%E5%93%81%E4%BB%8B%E7%B4%B905(1).jpg", cap: "三色漸層混拼地坪" },
       { url: "https://www.ccitytile.com/data/goods/gallery/202404/1712978561458504678.jpg", cap: "同系列岩紋細節對照" }
     ]
@@ -947,9 +1002,8 @@ const tilesData = [
     url: "https://www.ccitytile.com/",
     fallbackColors: ["#F4F3F0", "#9EA0A2", "#2C2E30"],
     photos: [
-      { url: "https://www.ccitytile.com/data/goods/gallery/202404/1712977841220913449.jpg", cap: "霧面石紋質感參考" },
-      { url: "https://www.ccitytile.com/data/editor/files/CBS192211-CBS192213-%E6%89%98%E8%90%8A%E5%A4%9A%E7%9F%B3%E7%B4%8B%E5%85%AD%E8%A7%92%E7%A3%9A-%E5%95%86%E5%93%81%E4%BB%8B%E7%B4%B905(1).jpg", cap: "六角幾何地坪鋪貼" },
-      { url: "https://www.ccitytile.com/data/editor/files/CBS192211-CBS192213-%E6%89%98%E8%90%8A%E5%A4%9A%E7%9F%B3%E7%B4%8B%E5%85%AD%E8%A7%92%E7%A3%9A-%E5%95%86%E5%93%81%E4%BB%8B%E7%B4%B904.jpg", cap: "深淺三色混搭效果" }
+      { url: "https://www.ccitytile.com/data/goods/gallery/202207/1658905519938165873.jpg", cap: "斯托雅大理石牆面實景" },
+      { url: "https://www.ccitytile.com/data/goods/gallery/202404/1712977841220913449.jpg", cap: "霧面大理石紋細節" }
     ]
   }
 ];
@@ -957,6 +1011,10 @@ const tilesData = [
 let currentBrand = "all";
 let currentSpace = "all";
 let currentView = "card";
+let lbPhotos = [];
+let lbIndex = 0;
+let lbTitle = "";
+let lbFallback = "";
 
 function getFilteredTiles() {
   return tilesData.filter(t => {
@@ -975,8 +1033,8 @@ function renderCards(list) {
 
   container.innerHTML = list.map(t => {
     const fb = makeHexFallback(t.fallbackColors[0], t.fallbackColors[1], t.fallbackColors[2], t.name);
-    const photosHtml = t.photos.map(p => `
-      <div class="photo-item" onclick="openLightbox('${p.url}', '${t.name} - ${p.cap}', '${fb}')">
+    const photosHtml = t.photos.map((p, idx) => `
+      <div class="photo-item" onclick="openTileLightbox(${t.id}, ${idx})">
         <img src="${p.url}" alt="${p.cap}" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='${fb}';">
         <div class="photo-cap">${p.cap}</div>
       </div>
@@ -993,8 +1051,14 @@ function renderCards(list) {
           <div class="size-pill">${t.size}<br><span style="font-size:10.5px;font-weight:500;">${t.perPingText}</span></div>
         </div>
 
-        <div class="photo-strip">
-          ${photosHtml}
+        <div class="photo-gallery-wrap">
+          <div class="gallery-hint">
+            <span>官網完整圖集（共 ${t.photos.length} 張）</span>
+            <span>點擊任一張放大</span>
+          </div>
+          <div class="photo-grid">
+            ${photosHtml}
+          </div>
         </div>
 
         <div class="spec-list">
@@ -1035,13 +1099,15 @@ function renderTable(list) {
   const headCols = list.map(t => `<th>${t.id}. ${t.name}</th>`).join("");
   const rows = [
     {
-      label: "官網實景圖",
+      label: "官網全圖集",
       cells: list.map(t => {
         const fb = makeHexFallback(t.fallbackColors[0], t.fallbackColors[1], t.fallbackColors[2], t.name);
-        const p = t.photos[0];
+        const thumbs = t.photos.map((p, idx) => `
+          <img class="tbl-thumb" src="${p.url}" alt="${p.cap}" title="${p.cap}" referrerpolicy="no-referrer" onclick="openTileLightbox(${t.id}, ${idx})" onerror="this.onerror=null;this.src='${fb}';">
+        `).join("");
         return `<td>
-          <img class="tbl-thumb" src="${p.url}" alt="${t.name}" referrerpolicy="no-referrer" onclick="openLightbox('${p.url}', '${t.name} - ${p.cap}', '${fb}')" onerror="this.onerror=null;this.src='${fb}';">
-          <div style="font-size:11px;color:var(--muted);">${p.cap}</div>
+          <div class="tbl-thumbs">${thumbs}</div>
+          <div style="font-size:11px;color:var(--muted);margin-top:4px;">共 ${t.photos.length} 張（點圖放大）</div>
         </td>`;
       }).join("")
     },
@@ -1074,7 +1140,8 @@ function renderTable(list) {
 
 function updateUI() {
   const filtered = getFilteredTiles();
-  document.getElementById("resultCount").textContent = `顯示 ${filtered.length} / 10 款六角磚（點擊照片可放大）`;
+  const totalPhotos = filtered.reduce((acc, t) => acc + t.photos.length, 0);
+  document.getElementById("resultCount").textContent = `顯示 ${filtered.length} 款六角磚（共 ${totalPhotos} 張官網圖，點擊可放大）`;
   renderCards(filtered);
   renderTable(filtered);
 }
@@ -1113,17 +1180,35 @@ function switchView(view) {
   }
 }
 
-function openLightbox(url, caption, fallbackUrl) {
-  const lb = document.getElementById("lightbox");
-  const img = document.getElementById("lightboxImg");
-  img.onerror = function() { this.onerror = null; this.src = fallbackUrl; };
-  img.src = url;
-  document.getElementById("lightboxCap").textContent = caption;
-  lb.classList.add("open");
+function openTileLightbox(tileId, photoIdx) {
+  const tile = tilesData.find(t => t.id === tileId);
+  if (!tile) return;
+  lbPhotos = tile.photos;
+  lbIndex = photoIdx;
+  lbTitle = tile.name;
+  lbFallback = makeHexFallback(tile.fallbackColors[0], tile.fallbackColors[1], tile.fallbackColors[2], tile.name);
+  updateLightboxContent();
+  document.getElementById("lightbox").classList.add("open");
 }
 
-function closeLightbox() {
-  document.getElementById("lightbox").classList.remove("open");
+function stepLightbox(delta) {
+  if (!lbPhotos.length) return;
+  lbIndex = (lbIndex + delta + lbPhotos.length) % lbPhotos.length;
+  updateLightboxContent();
+}
+
+function updateLightboxContent() {
+  const p = lbPhotos[lbIndex];
+  const img = document.getElementById("lightboxImg");
+  img.onerror = function() { this.onerror = null; this.src = lbFallback; };
+  img.src = p.url;
+  document.getElementById("lightboxCap").textContent = `${lbTitle} — ${p.cap} (${lbIndex + 1} / ${lbPhotos.length})`;
+}
+
+function closeLightbox(e, force) {
+  if (force || (e && e.target.id === "lightbox")) {
+    document.getElementById("lightbox").classList.remove("open");
+  }
 }
 
 function initCalculator() {
