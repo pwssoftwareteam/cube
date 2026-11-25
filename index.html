@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>六角磚產品規格與實景選購比較手冊</title>
+<style>
+  :root {
+    --bg: #F6F4F0;
+    --card: #FFFFFF;
+    --ink: #22252A;
+    --muted: #666D77;
+    --line: #E4DFD7;
+    --accent: #3D5A58;
+    --accent-soft: #EBF0EF;
+    --tag-fuyu: #8C5E3C;
+    --tag-pucheng: #3D5A58;
+    --tag-ccity: #5A5278;
+    --radius: 14px;
+    --shadow: 0 4px 16px rgba(34, 37, 42, 0.06);
+  }
+
+  * {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Microsoft JhengHei", "Noto Sans TC", sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.55;
+    padding-bottom: 48px;
+    overflow-x: hidden;
+  }
+
+  /* Header */
+  header {
+    background: linear-gradient(135deg, #2B3A39 0%, #3D5A58 100%);
+    color: #fff;
+    padding: 20px 16px 16px;
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+  }
+
+  .header-top {
+    max-width: 1120px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+
+  h1 {
+    font-size: 18px;
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+  }
+
+  .subtitle {
+    font-size: 12px;
+    opacity: 0.85;
+    margin-top: 3px;
+  }
+
+  .view-toggle {
+    display: flex;
+    background: rgba(255,255,255,0.15);
+    border-radius: 10px;
+    padding: 3px;
+    flex-shrink: 0;
+  }
+
+  .view-btn {
+    border: none;
+    background: transparent;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 11px;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .view-btn.active {
+    background: #fff;
+    color: var(--accent);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+  }
+
+  /* Filter Bar */
+  .filter-bar {
+    background: #fff;
+    border-bottom: 1px solid var(--line);
+    padding: 10px 16px;
+    position: sticky;
+    top: 68px;
+    z-index: 30;
+  }
+
+  .filter-inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .filter-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-bottom: 2px;
+  }
+  .filter-row::-webkit-scrollbar { display: none; }
+
+  .filter-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--muted);
+    white-space: nowrap;
+    margin-right: 2px;
+  }
+
+  .chip {
+    border: 1px solid var(--line);
+    background: #FAF9F7;
+    color: var(--ink);
+    font-size: 12px;
+    padding: 5px 11px;
+    border-radius: 20px;
+    white-space: nowrap;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.15s;
+  }
+
+  .chip.active {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+    font-weight: 600;
+  }
+
+  /* Main Container */
+  main {
+    max-width: 1120px;
+    margin: 16px auto;
+    padding: 0 14px;
+  }
+
+  .status-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 12px;
+    padding: 0 2px;
+  }
+
+  /* Card Grid */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  @media (min-width: 768px) {
+    .cards-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    h1 { font-size: 21px; }
+  }
+
+  .tile-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--line);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-header {
+    padding: 14px 16px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+    border-bottom: 1px solid #F1EDE6;
+  }
+
+  .brand-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 6px;
+    margin-bottom: 4px;
+  }
+  .brand-fuyu { background: var(--tag-fuyu); }
+  .brand-pucheng { background: var(--tag-pucheng); }
+  .brand-ccity { background: var(--tag-ccity); }
+
+  .tile-title {
+    font-size: 17px;
+    font-weight: 700;
+    margin: 0;
+    color: var(--ink);
+  }
+
+  .tile-model {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin-top: 2px;
+    word-break: break-all;
+  }
+
+  .size-pill {
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 12px;
+    padding: 5px 10px;
+    border-radius: 8px;
+    white-space: nowrap;
+    text-align: right;
+  }
+
+  /* 3-Photo Strip inside Card */
+  .photo-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    padding: 10px 12px;
+    background: #FAF8F5;
+    border-bottom: 1px solid #F1EDE6;
+  }
+
+  .photo-item {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #EAE5DC;
+    cursor: zoom-in;
+    border: 1px solid rgba(0,0,0,0.06);
+  }
+
+  .photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.25s ease;
+  }
+
+  .photo-item:hover img {
+    transform: scale(1.05);
+  }
+
+  .photo-cap {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.72));
+    color: #fff;
+    font-size: 10px;
+    padding: 12px 5px 4px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Specs Table inside Card */
+  .spec-list {
+    padding: 12px 16px 14px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px 12px;
+    font-size: 12.5px;
+  }
+
+  .spec-box {
+    background: #FAF9F7;
+    padding: 7px 10px;
+    border-radius: 8px;
+  }
+
+  .spec-box.full {
+    grid-column: 1 / -1;
+  }
+
+  .spec-k {
+    font-size: 11px;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 1px;
+  }
+
+  .spec-v {
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .card-footer {
+    margin-top: auto;
+    padding: 10px 16px;
+    background: #FAF8F5;
+    border-top: 1px solid #F1EDE6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+  }
+
+  .ext-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  /* Vertical Comparison Table View */
+  .table-wrap {
+    display: none;
+    background: #fff;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--line);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .table-wrap.active {
+    display: block;
+  }
+
+  table.comp-table {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: max-content;
+    min-width: 100%;
+    font-size: 12.5px;
+  }
+
+  .comp-table th, .comp-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+    vertical-align: top;
+    width: 175px;
+    max-width: 195px;
+  }
+
+  .comp-table th:first-child,
+  .comp-table td:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 10;
+    background: #F4F1EB;
+    font-weight: 700;
+    color: var(--ink);
+    width: 105px;
+    min-width: 105px;
+    max-width: 105px;
+    border-right: 2px solid #D5CEC2;
+  }
+
+  .comp-table thead th {
+    background: #2B3A39;
+    color: #fff;
+    font-weight: 700;
+    text-align: left;
+  }
+
+  .comp-table thead th:first-child {
+    background: #1F2B2A;
+    color: #fff;
+    z-index: 15;
+  }
+
+  .tbl-thumb {
+    width: 100%;
+    height: 95px;
+    object-fit: cover;
+    border-radius: 6px;
+    display: block;
+    margin-bottom: 5px;
+    cursor: zoom-in;
+    background: #EAE5DC;
+  }
+
+  /* Calculator & Vendor Section */
+  .tool-section {
+    margin-top: 26px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  @media (min-width: 768px) {
+    .tool-section {
+      grid-template-columns: 1fr 1.2fr;
+    }
+  }
+
+  .panel {
+    background: #fff;
+    border-radius: var(--radius);
+    padding: 16px;
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow);
+  }
+
+  .panel h2 {
+    font-size: 15px;
+    margin: 0 0 12px;
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .calc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .calc-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 12px;
+  }
+
+  .calc-field.full { grid-column: 1 / -1; }
+
+  .calc-field select, .calc-field input {
+    padding: 8px 10px;
+    border: 1px solid #D5CEC2;
+    border-radius: 8px;
+    font-size: 14px;
+    background: #FAF9F7;
+    color: var(--ink);
+  }
+
+  .calc-result {
+    margin-top: 12px;
+    background: var(--accent-soft);
+    padding: 10px 12px;
+    border-radius: 10px;
+    font-size: 13px;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+  }
+
+  .calc-num {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--accent);
+    display: block;
+  }
+
+  .vendor-item {
+    padding: 10px 0;
+    border-bottom: 1px solid #F1EDE6;
+    font-size: 12.5px;
+  }
+  .vendor-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+  .vendor-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+  }
+
+  .vendor-actions {
+    display: flex;
+    gap: 6px;
+  }
+
+  .btn-mini {
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 9px;
+    border-radius: 6px;
+    background: var(--accent-soft);
+    color: var(--accent);
+  }
+
+  /* Lightbox Modal */
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(18, 20, 23, 0.92);
+    z-index: 100;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+  }
+
+  .lightbox.open { display: flex; }
+
+  .lightbox img {
+    max-width: 96vw;
+    max-height: 78vh;
+    border-radius: 10px;
+    object-fit: contain;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+  }
+
+  .lightbox-caption {
+    color: #fff;
+    font-size: 13px;
+    margin-top: 12px;
+    text-align: center;
+    max-width: 90vw;
+  }
+
+  .lightbox-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-top">
+    <div>
+      <h1>六角磚選購與規格比較手冊</h1>
+      <div class="subtitle">富錥建材 ・ 鏷城磁磚 ・ 喜地磁磚（共 10 款 HTTPS 官網實圖彙整）</div>
+    </div>
+    <div class="view-toggle">
+      <button class="view-btn active" id="btnCardView" onclick="switchView('card')">圖卡模式</button>
+      <button class="view-btn" id="btnTableView" onclick="switchView('table')">直向比較表</button>
+    </div>
+  </div>
+</header>
+
+<div class="filter-bar">
+  <div class="filter-inner">
+    <div class="filter-row" id="brandFilters">
+      <span class="filter-label">廠商：</span>
+      <button class="chip active" data-brand="all" onclick="setBrand('all', this)">全部 (10)</button>
+      <button class="chip" data-brand="富錥建材" onclick="setBrand('富錥建材', this)">富錥建材 (4)</button>
+      <button class="chip" data-brand="鏷城磁磚" onclick="setBrand('鏷城磁磚', this)">鏷城磁磚 (3)</button>
+      <button class="chip" data-brand="喜地磁磚" onclick="setBrand('喜地磁磚', this)">喜地磁磚 (3)</button>
+    </div>
+    <div class="filter-row" id="spaceFilters">
+      <span class="filter-label">空間：</span>
+      <button class="chip active" data-space="all" onclick="setSpace('all', this)">不限空間</button>
+      <button class="chip" data-space="玄關" onclick="setSpace('玄關', this)">玄關落塵區</button>
+      <button class="chip" data-space="浴室" onclick="setSpace('浴室', this)">浴室衛浴</button>
+      <button class="chip" data-space="廚房" onclick="setSpace('廚房', this)">廚房</button>
+      <button class="chip" data-space="大面積" onclick="setSpace('大面積', this)">客餐廳 / 陽台大面積</button>
+    </div>
+  </div>
+</div>
+
+<main>
+  <div class="status-bar">
+    <span id="resultCount">顯示全部 10 款六角磚（點擊任一照片可放大檢視）</span>
+    <span>全數 HTTPS 安全連線圖檔</span>
+  </div>
+
+  <!-- Card View -->
+  <div class="cards-grid" id="cardsContainer"></div>
+
+  <!-- Vertical Table View -->
+  <div class="table-wrap" id="tableContainer"></div>
+
+  <!-- Calculator & Vendors -->
+  <div class="tool-section">
+    <div class="panel">
+      <h2>📐 坪數與片數 / 箱數試算器</h2>
+      <div class="calc-grid">
+        <div class="calc-field full">
+          <label>選擇磁磚款式</label>
+          <select id="calcTile" onchange="calcArea()"></select>
+        </div>
+        <div class="calc-field">
+          <label>預計施作坪數</label>
+          <input type="number" id="calcPing" value="1.5" min="0.1" step="0.1" oninput="calcArea()">
+        </div>
+        <div class="calc-field">
+          <label>預留施工損耗</label>
+          <select id="calcLoss" onchange="calcArea()">
+            <option value="1.05" selected>+5%（標準對縫）</option>
+            <option value="1.08">+8%（斜切 / 多轉角）</option>
+            <option value="1.00">0%（不計損耗）</option>
+          </select>
+        </div>
+      </div>
+      <div class="calc-result">
+        <div>
+          <span class="calc-num" id="resPieces">189 片</span>
+          <span>預估總片數</span>
+        </div>
+        <div>
+          <span class="calc-num" id="resBoxes">6 箱</span>
+          <span id="resBoxNote">每箱 35 片</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2>📍 三家廠商門市與看樣資訊</h2>
+      <div class="vendor-item">
+        <div class="vendor-top">
+          <strong>富錥建材（台灣製為主）</strong>
+          <div class="vendor-actions">
+            <a class="btn-mini" href="tel:034607090">📞 撥打</a>
+            <a class="btn-mini" href="https://maps.google.com/?q=桃園市平鎮區龍南路140號" target="_blank" rel="noopener">🗺️ 導航</a>
+          </div>
+        </div>
+        <div>桃園市平鎮區龍南路140號 ｜ 03-4607090</div>
+        <div style="color:var(--muted);font-size:11.5px;">週一至週五 08:00–18:00（週末預約制）｜ LINE: @259ihurv</div>
+      </div>
+
+      <div class="vendor-item">
+        <div class="vendor-top">
+          <strong>鏷城精品磁磚（進口霧面磚）</strong>
+          <div class="vendor-actions">
+            <a class="btn-mini" href="tel:0227067077">📞 撥打</a>
+            <a class="btn-mini" href="https://maps.google.com/?q=台北市大安區和平東路二段107巷8號" target="_blank" rel="noopener">🗺️ 導航</a>
+          </div>
+        </div>
+        <div>台北市大安區和平東路二段107巷8號 ｜ 02-2706-7077</div>
+        <div style="color:var(--muted);font-size:11.5px;">週一至週五 09:00–18:00、週六 09:00–17:00</div>
+      </div>
+
+      <div class="vendor-item">
+        <div class="vendor-top">
+          <strong>喜地精品磁磚（西班牙 / 義大利進口）</strong>
+          <div class="vendor-actions">
+            <a class="btn-mini" href="tel:0227365678">📞 撥打</a>
+            <a class="btn-mini" href="https://maps.google.com/?q=台北市大安區基隆路二段222號" target="_blank" rel="noopener">🗺️ 導航</a>
+          </div>
+        </div>
+        <div>台北市大安區基隆路二段222號+224號2樓（近六張犁站）｜ 02-2736-5678</div>
+        <div style="color:var(--muted);font-size:11.5px;">週一至週五 09:00–19:00、週六 10:30–19:00（週日公休，建議預留1hr）</div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">×</button>
+  <img id="lightboxImg" src="" alt="" referrerpolicy="no-referrer">
+  <div class="lightbox-caption" id="lightboxCap"></div>
+</div>
+
+<script>
+// Generate clean SVG fallback data URI if an external server blocks cross-origin embedding
+function makeHexFallback(c1, c2, c3, label) {
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+    <rect width="400" height="400" fill="#EFECE6"/>
+    <g stroke="#DCD6CC" stroke-width="3">
+      <polygon points="130,60 190,95 190,165 130,200 70,165 70,95" fill="${c1}"/>
+      <polygon points="260,60 320,95 320,165 260,200 200,165 200,95" fill="${c2}"/>
+      <polygon points="195,172 255,207 255,277 195,312 135,277 135,207" fill="${c3}"/>
+      <polygon points="65,172 125,207 125,277 65,312 5,277 5,207" fill="${c2}"/>
+      <polygon points="325,172 385,207 385,277 325,312 265,277 265,207" fill="${c1}"/>
+    </g>
+    <text x="200" y="365" font-family="sans-serif" font-size="16" font-weight="bold" fill="#555" text-anchor="middle">${label}</text>
+  </svg>`;
+  return "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(svg);
+}
+
+const tilesData = [
+  {
+    id: 1,
+    brand: "富錥建材",
+    brandClass: "brand-fuyu",
+    name: "卡莫爾六角磚",
+    model: "Y024CA201(白)、202(米)、203(棕)、20R(15種模花)",
+    size: "17.5 × 20 cm",
+    thickness: "8 mm",
+    origin: "台灣",
+    material: "瓷質磚 / 霧面",
+    colors: "咖啡、白、米（含15種隨機幾何花磚模面）",
+    pack: "35 片/箱",
+    packNum: 35,
+    perPing: 120,
+    perPingText: "120 片/坪",
+    spaces: ["玄關", "浴室", "廚房"],
+    usageDesc: "尺寸小巧細膩，適合玄關落塵區、浴室局部跳色或廚房防濺牆",
+    url: "https://www.fuyu-tiles.com/products/%E5%8D%A1%E8%8E%AB%E7%88%BE%E5%85%AD%E8%A7%92%E7%A3%9A/",
+    fallbackColors: ["#F3F1ED", "#DFD3C3", "#8D7360"],
+    photos: [
+      { url: "https://www.fuyu-tiles.com/wp-content/uploads/2025/06/Y024CA201-1.webp", cap: "Y024CA201 素白單片" },
+      { url: "https://www.fuyu-tiles.com/wp-content/uploads/2025/06/Y024CA202-1.webp", cap: "Y024CA202 暖米單片" },
+      { url: "https://www.fuyu-tiles.com/wp-content/uploads/2025/06/Y024CA20R-1.webp", cap: "Y024CA20R 隨機模花" }
+    ]
+  },
+  {
+    id: 2,
+    brand: "富錥建材",
+    brandClass: "brand-fuyu",
+    name: "新元石-兵庫六角磚",
+    model: "Y555D1、Y555D2、Y555D3",
+    size: "26 × 30 cm",
+    thickness: "9.5 mm",
+    origin: "台灣",
+    material: "石英磚 / 霧面",
+    colors: "灰、黑（16種自然石紋模面）",
+    pack: "14 片/箱",
+    packNum: 14,
+    perPing: 55,
+    perPingText: "55 片/坪",
+    spaces: ["玄關", "浴室", "大面積"],
+    usageDesc: "厚實耐磨大尺寸，冷灰色調沉穩現代，適合客餐廳、陽台或大坪數玄關",
+    url: "https://www.fuyu-tiles.com/products/%E5%85%B5%E5%BA%AB%E5%85%AD%E8%A7%92%E7%A3%9A/",
+    fallbackColors: ["#9EA2A5", "#5F6368", "#35383B"],
+    photos: [
+      { url: "https://www.fuyu-tiles.com/wp-content/uploads/2025/06/Y555D1.webp", cap: "Y555D1 淺灰石紋" },
+      { url: "https://www.fuyu-tiles.com/wp-content/uploads/2025/06/Y555D2.webp", cap: "Y555D2 中灰石紋" },
+      { url: "https://www.fuyu-tiles.com/wp-content/uploads/2025/06/%E5%85%B5%E5%BA%AB%E7%B3%BB%E5%88%97-Y555D3Y555D2-%E5%BA%AD%E9%99%A2%E7%A9%BA%E9%96%93-1024x683.webp", cap: "官網實景鋪貼效果" }
+    ]
+  },
+  {
+    id: 3,
+    brand: "富錥建材",
+    brandClass: "brand-fuyu",
+    name: "新元石-文藝復興六角磚",
+    model: "Y555A1 / A1F、Y555A2 / A2F（F為隨機花磚）",
+    size: "26 × 30 cm",
+    thickness: "9.5 mm",
+    origin: "台灣",
+    material: "石英磚 / 霧面",
+    colors: "咖啡、灰（8種模面，含素磚與復古雕花）",
+    pack: "14 片/箱",
+    packNum: 14,
+    perPing: 55,
+    perPingText: "55 片/坪",
+    spaces: ["玄關", "大面積", "廚房"],
+    usageDesc: "仿古石紋結合局部花紋設計，大氣兼具復古細節，地壁皆宜",
+    url: "https://www.fuyu-tiles.com/products/%E6%96%87%E8%97%9D%E5%BE%A9%E8%88%88%E5%85%AD%E8%A7%92%E7%A3%9A/",
+    fallbackColors: ["#A69B8D", "#7D7063", "#8E8D8A"],
+    photos: [
+      { url: "https://www.fuyu-tiles.com/wp-content/uploads/2025/06/%E6%96%87%E8%97%9D%E5%BE%A9%E8%88%88%E5%85%AD%E8%A7%92%E7%A3%9A%E7%B3%BB%E5%88%97-%E7%89%B9%E6%99%AF.webp", cap: "官網地坪特景混拼" },
+      { url: "https://www.fuyu-tiles.com/wp-content/uploads/2025/06/%E6%96%87%E8%97%9D%E5%BE%A9%E8%88%88%E5%85%AD%E8%A7%92%E7%A3%9A%E7%B3%BB%E5%88%97-%E4%B8%BB%E9%A1%8C%E7%89%86.webp", cap: "官網主題牆鋪貼" },
+      { url: "https://www.fuyu-tiles.com/wp-content/uploads/2025/06/Y555A1F-F1.webp", cap: "Y555A1F 復古花磚單片" }
+    ]
+  },
+  {
+    id: 4,
+    brand: "富錥建材",
+    brandClass: "brand-fuyu",
+    name: "金元石-六角磚",
+    model: "J333A1、J333A2、J333A3、J333A5",
+    size: "26 × 30 cm",
+    thickness: "9.5 mm",
+    origin: "台灣",
+    material: "石英磚 / 霧面",
+    colors: "米、藍（自然多模面石紋變化）",
+    pack: "14 片/箱",
+    packNum: 14,
+    perPing: 55,
+    perPingText: "55 片/坪",
+    spaces: ["浴室", "玄關", "大面積"],
+    usageDesc: "天然岩石層次感，米色溫潤、藍色沉靜，雙色搭配可營造衛浴視覺層次",
+    url: "https://www.fuyu-tiles.com/products/%E9%87%91%E5%85%83%E7%9F%B3%E5%85%AD%E8%A7%92%E7%A3%9A/",
+    fallbackColors: ["#D7C5AC", "#4F667A", "#8B939A"],
+    photos: [
+      { url: "https://www.fuyu-tiles.com/wp-content/uploads/2025/06/J333A1-1.webp", cap: "J333A1 暖米岩紋" },
+      { url: "https://www.fuyu-tiles.com/wp-content/uploads/2025/06/J333A2-1.webp", cap: "J333A2 冷灰岩紋" },
+      { url: "https://www.fuyu-tiles.com/wp-content/uploads/2025/06/%E5%85%AD%E8%A7%92%E7%A3%9A%E7%B3%BB%E5%88%97-%E6%B5%B4%E5%AE%A4.webp", cap: "官網衛浴空間實景" }
+    ]
+  },
+  {
+    id: 5,
+    brand: "鏷城磁磚",
+    brandClass: "brand-pucheng",
+    name: "23x27楓木",
+    model: "e9ae853873ca3987-F349",
+    size: "23 × 27 cm",
+    thickness: "依廠商規格",
+    origin: "進口",
+    material: "石英磚 / 霧面",
+    colors: "白、灰、棕（自然森林木紋風）",
+    pack: "依廠商報價",
+    packNum: 16,
+    perPing: 68,
+    perPingText: "約 68 片/坪（估算）",
+    spaces: ["玄關", "浴室", "大面積"],
+    usageDesc: "兼具木地板溫潤紋理與石英磚防水耐磨特性，適合浴室乾區、玄關與陽台",
+    url: "https://pucheng.net.tw/products/IMP-e9ae853873ca3987",
+    fallbackColors: ["#E5DDD3", "#B0A99F", "#9E7856"],
+    photos: [
+      { url: "https://pucheng.net.tw/api/product-images/b52d750a-25f1-5984-654b-80dcae6ae062.jpg", cap: "官網主圖（三色木紋）" },
+      { url: "https://pucheng.net.tw/api/product-images/7f8ecbd5-ec21-2691-a799-c907eb591f7e.jpg", cap: "官網空間實景一" },
+      { url: "https://pucheng.net.tw/api/product-images/c68f84ce-9091-a2d2-b350-819cdc4c6de9.jpg", cap: "官網空間實景二" }
+    ]
+  },
+  {
+    id: 6,
+    brand: "鏷城磁磚",
+    brandClass: "brand-pucheng",
+    name: "組合丹青",
+    model: "0cf8866e140e70e2-F349",
+    size: "22 × 25 cm",
+    thickness: "依廠商規格",
+    origin: "進口",
+    material: "石英磚 / 霧面平面",
+    colors: "白、灰、棕、綠、藍、黑（共6色系）",
+    pack: "依廠商報價",
+    packNum: 18,
+    perPing: 78,
+    perPingText: "約 78 片/坪（估算）",
+    spaces: ["浴室", "廚房", "玄關"],
+    usageDesc: "色彩選擇最多元，單片帶自然窯變深淺，適合工業風、侘寂風做跳色拼貼",
+    url: "https://pucheng.net.tw/products/IMP-0cf8866e140e70e2",
+    fallbackColors: ["#6E8577", "#486178", "#3A3D40"],
+    photos: [
+      { url: "https://pucheng.net.tw/api/product-images/06fd6e56-f147-4a3c-63be-e05bd8644e92.jpg", cap: "官網主圖（多色拼貼）" },
+      { url: "https://pucheng.net.tw/api/product-images/671c297e-3b21-a5a6-3c88-260a06f911b3.jpg", cap: "官網空間實景一" },
+      { url: "https://pucheng.net.tw/api/product-images/8f20a806-7bf5-bd90-b689-4ba4c3063730.jpg", cap: "官網空間實景二" }
+    ]
+  },
+  {
+    id: 7,
+    brand: "鏷城磁磚",
+    brandClass: "brand-pucheng",
+    name: "MPR691",
+    model: "72e2d9922c14d81e-F302",
+    size: "19.8 × 22.8 cm",
+    thickness: "依廠商規格",
+    origin: "進口",
+    material: "瓷質磚 / 霧面",
+    colors: "米（岩面石紋 / 日式禪風 / 侘寂風）",
+    pack: "依廠商報價",
+    packNum: 22,
+    perPing: 98,
+    perPingText: "約 98 片/坪（估算）",
+    spaces: ["浴室", "玄關"],
+    usageDesc: "柔和米色天然岩面紋理，視覺溫潤耐看，適合全室衛浴或打造日式侘寂玄關",
+    url: "https://pucheng.net.tw/products/IMP-72e2d9922c14d81e",
+    fallbackColors: ["#DDD4C7", "#CFC3B2", "#BFB19E"],
+    photos: [
+      { url: "https://pucheng.net.tw/api/product-images/0dbd2744-9793-9380-4cc2-d15f4a3c0cf9.jpg", cap: "官網主圖（岩面米色）" },
+      { url: "https://pucheng.net.tw/api/product-images/abac6a5d-2eab-491c-a22b-fb2342dcd017.jpg", cap: "官網實景鋪貼效果" },
+      { url: "https://pucheng.net.tw/api/product-images/0dbd2744-9793-9380-4cc2-d15f4a3c0cf9.jpg", cap: "霧面岩紋細節對照" }
+    ]
+  },
+  {
+    id: 8,
+    brand: "喜地磁磚",
+    brandClass: "brand-ccity",
+    name: "托萊多石紋六角磚 - 漠岩米",
+    model: "CBS192211（同系列：212淺岩灰、213深岩灰）",
+    size: "19.8 × 22.8 cm",
+    thickness: "依廠商規格",
+    origin: "西班牙",
+    material: "瓷質磚",
+    colors: "漠岩米（自然石紋色階變化）",
+    pack: "依廠商報價",
+    packNum: 22,
+    perPing: 98,
+    perPingText: "約 98 片/坪（估算）",
+    spaces: ["浴室", "廚房", "玄關"],
+    usageDesc: "細膩西班牙自然岩石紋理，溫潤百搭，地壁皆宜（推薦浴室、廚房、玄關）",
+    url: "https://www.ccitytile.com/product/1490",
+    fallbackColors: ["#DFD5C5", "#D2C5B2", "#C4B59E"],
+    photos: [
+      { url: "https://www.ccitytile.com/data/goods/gallery/202404/1712978561458504678.jpg", cap: "CBS192211 漠岩米主圖" },
+      { url: "https://www.ccitytile.com/data/editor/files/CBS192211-CBS192213-%E6%89%98%E8%90%8A%E5%A4%9A%E7%9F%B3%E7%B4%8B%E5%85%AD%E8%A7%92%E7%A3%9A-%E5%95%86%E5%93%81%E4%BB%8B%E7%B4%B905(1).jpg", cap: "同系列三色混拼地坪" },
+      { url: "https://www.ccitytile.com/data/editor/files/CBS192211-CBS192213-%E6%89%98%E8%90%8A%E5%A4%9A%E7%9F%B3%E7%B4%8B%E5%85%AD%E8%A7%92%E7%A3%9A-%E5%95%86%E5%93%81%E4%BB%8B%E7%B4%B904.jpg", cap: "托萊多全系列三色卡" }
+    ]
+  },
+  {
+    id: 9,
+    brand: "喜地磁磚",
+    brandClass: "brand-ccity",
+    name: "托萊多石紋六角磚 - 深岩灰",
+    model: "CBS192213（同系列：211漠岩米、212淺岩灰）",
+    size: "19.8 × 22.8 cm",
+    thickness: "依廠商規格",
+    origin: "西班牙",
+    material: "瓷質磚",
+    colors: "深岩灰（深灰基底帶白色礦物細脈）",
+    pack: "依廠商報價",
+    packNum: 22,
+    perPing: 98,
+    perPingText: "約 98 片/坪（估算）",
+    spaces: ["玄關", "浴室"],
+    usageDesc: "耐髒度極高，常與漠岩米或淺岩灰做漸層混拼，推薦玄關落塵區與淋浴間",
+    url: "https://www.ccitytile.com/product/1490",
+    fallbackColors: ["#53565A", "#3E4144", "#6B6F73"],
+    photos: [
+      { url: "https://www.ccitytile.com/data/editor/files/CBS192211-CBS192213-%E6%89%98%E8%90%8A%E5%A4%9A%E7%9F%B3%E7%B4%8B%E5%85%AD%E8%A7%92%E7%A3%9A-%E5%95%86%E5%93%81%E4%BB%8B%E7%B4%B904.jpg", cap: "托萊多全系列三色卡" },
+      { url: "https://www.ccitytile.com/data/editor/files/CBS192211-CBS192213-%E6%89%98%E8%90%8A%E5%A4%9A%E7%9F%B3%E7%B4%8B%E5%85%AD%E8%A7%92%E7%A3%9A-%E5%95%86%E5%93%81%E4%BB%8B%E7%B4%B905(1).jpg", cap: "三色漸層混拼地坪" },
+      { url: "https://www.ccitytile.com/data/goods/gallery/202404/1712978561458504678.jpg", cap: "同系列岩紋細節對照" }
+    ]
+  },
+  {
+    id: 10,
+    brand: "喜地磁磚",
+    brandClass: "brand-ccity",
+    name: "斯托雅大理石六角磚",
+    model: "CMC212501(銀狐白)~2504(黑白根)、2510(混搭)",
+    size: "25 × 21.6 cm",
+    thickness: "依廠商規格",
+    origin: "義大利",
+    material: "瓷質磚 / 霧面",
+    colors: "銀狐白、黃金卡拉拉、安格拉珍珠、黑白根、混搭",
+    pack: "依廠商報價",
+    packNum: 18,
+    perPing: 83,
+    perPingText: "約 83 片/坪（估算）",
+    spaces: ["玄關", "浴室"],
+    usageDesc: "霧面大理石紋兼顧高級感與防滑，黑白灰三色可拼出 3D 立體方塊視覺",
+    url: "https://www.ccitytile.com/",
+    fallbackColors: ["#F4F3F0", "#9EA0A2", "#2C2E30"],
+    photos: [
+      { url: "https://www.ccitytile.com/data/goods/gallery/202404/1712977841220913449.jpg", cap: "霧面石紋質感參考" },
+      { url: "https://www.ccitytile.com/data/editor/files/CBS192211-CBS192213-%E6%89%98%E8%90%8A%E5%A4%9A%E7%9F%B3%E7%B4%8B%E5%85%AD%E8%A7%92%E7%A3%9A-%E5%95%86%E5%93%81%E4%BB%8B%E7%B4%B905(1).jpg", cap: "六角幾何地坪鋪貼" },
+      { url: "https://www.ccitytile.com/data/editor/files/CBS192211-CBS192213-%E6%89%98%E8%90%8A%E5%A4%9A%E7%9F%B3%E7%B4%8B%E5%85%AD%E8%A7%92%E7%A3%9A-%E5%95%86%E5%93%81%E4%BB%8B%E7%B4%B904.jpg", cap: "深淺三色混搭效果" }
+    ]
+  }
+];
+
+let currentBrand = "all";
+let currentSpace = "all";
+let currentView = "card";
+
+function getFilteredTiles() {
+  return tilesData.filter(t => {
+    const matchBrand = currentBrand === "all" || t.brand === currentBrand;
+    const matchSpace = currentSpace === "all" || t.spaces.includes(currentSpace);
+    return matchBrand && matchSpace;
+  });
+}
+
+function renderCards(list) {
+  const container = document.getElementById("cardsContainer");
+  if (list.length === 0) {
+    container.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:40px 16px;color:var(--muted);background:#fff;border-radius:14px;">沒有符合目前篩選條件的磁磚，請嘗試切換上方篩選按鈕。</div>`;
+    return;
+  }
+
+  container.innerHTML = list.map(t => {
+    const fb = makeHexFallback(t.fallbackColors[0], t.fallbackColors[1], t.fallbackColors[2], t.name);
+    const photosHtml = t.photos.map(p => `
+      <div class="photo-item" onclick="openLightbox('${p.url}', '${t.name} - ${p.cap}', '${fb}')">
+        <img src="${p.url}" alt="${p.cap}" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='${fb}';">
+        <div class="photo-cap">${p.cap}</div>
+      </div>
+    `).join("");
+
+    return `
+      <article class="tile-card">
+        <div class="card-header">
+          <div>
+            <span class="brand-badge ${t.brandClass}">${t.brand} ・ ${t.origin}</span>
+            <h3 class="tile-title">${t.id}. ${t.name}</h3>
+            <div class="tile-model">${t.model}</div>
+          </div>
+          <div class="size-pill">${t.size}<br><span style="font-size:10.5px;font-weight:500;">${t.perPingText}</span></div>
+        </div>
+
+        <div class="photo-strip">
+          ${photosHtml}
+        </div>
+
+        <div class="spec-list">
+          <div class="spec-box">
+            <span class="spec-k">材質 / 表面</span>
+            <span class="spec-v">${t.material}</span>
+          </div>
+          <div class="spec-box">
+            <span class="spec-k">厚度 / 包裝</span>
+            <span class="spec-v">${t.thickness} ｜ ${t.pack}</span>
+          </div>
+          <div class="spec-box full">
+            <span class="spec-k">顏色與模面款式</span>
+            <span class="spec-v">${t.colors}</span>
+          </div>
+          <div class="spec-box full">
+            <span class="spec-k">適用空間與特色</span>
+            <span class="spec-v" style="font-weight:500;">${t.usageDesc}</span>
+          </div>
+        </div>
+
+        <div class="card-footer">
+          <span style="color:var(--muted);">適用：${t.spaces.join("、")}</span>
+          <a class="ext-link" href="${t.url}" target="_blank" rel="noopener">開啟官網頁面 ↗</a>
+        </div>
+      </article>
+    `;
+  }).join("");
+}
+
+function renderTable(list) {
+  const wrap = document.getElementById("tableContainer");
+  if (list.length === 0) {
+    wrap.innerHTML = `<div style="text-align:center;padding:40px 16px;color:var(--muted);">沒有符合目前篩選條件的磁磚。</div>`;
+    return;
+  }
+
+  const headCols = list.map(t => `<th>${t.id}. ${t.name}</th>`).join("");
+  const rows = [
+    {
+      label: "官網實景圖",
+      cells: list.map(t => {
+        const fb = makeHexFallback(t.fallbackColors[0], t.fallbackColors[1], t.fallbackColors[2], t.name);
+        const p = t.photos[0];
+        return `<td>
+          <img class="tbl-thumb" src="${p.url}" alt="${t.name}" referrerpolicy="no-referrer" onclick="openLightbox('${p.url}', '${t.name} - ${p.cap}', '${fb}')" onerror="this.onerror=null;this.src='${fb}';">
+          <div style="font-size:11px;color:var(--muted);">${p.cap}</div>
+        </td>`;
+      }).join("")
+    },
+    { label: "廠商 / 產地", cells: list.map(t => `<td><strong>${t.brand}</strong><br>${t.origin}</td>`).join("") },
+    { label: "型號 / 色號", cells: list.map(t => `<td style="font-size:11.5px;word-break:break-all;">${t.model}</td>`).join("") },
+    { label: "尺寸 (cm)", cells: list.map(t => `<td><strong style="color:var(--accent);">${t.size}</strong></td>`).join("") },
+    { label: "厚度", cells: list.map(t => `<td>${t.thickness}</td>`).join("") },
+    { label: "材質 / 表面", cells: list.map(t => `<td>${t.material}</td>`).join("") },
+    { label: "顏色款式", cells: list.map(t => `<td>${t.colors}</td>`).join("") },
+    { label: "包裝規格", cells: list.map(t => `<td>${t.pack}</td>`).join("") },
+    { label: "每坪用量", cells: list.map(t => `<td>${t.perPingText}</td>`).join("") },
+    { label: "適用空間", cells: list.map(t => `<td>${t.usageDesc}</td>`).join("") },
+    { label: "官網連結", cells: list.map(t => `<td><a class="ext-link" href="${t.url}" target="_blank" rel="noopener">查看官網 ↗</a></td>`).join("") }
+  ];
+
+  wrap.innerHTML = `
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>比較項目</th>
+          ${headCols}
+        </tr>
+      </thead>
+      <tbody>
+        ${rows.map(r => `<tr><td>${r.label}</td>${r.cells}</tr>`).join("")}
+      </tbody>
+    </table>
+  `;
+}
+
+function updateUI() {
+  const filtered = getFilteredTiles();
+  document.getElementById("resultCount").textContent = `顯示 ${filtered.length} / 10 款六角磚（點擊照片可放大）`;
+  renderCards(filtered);
+  renderTable(filtered);
+}
+
+function setBrand(brand, btn) {
+  currentBrand = brand;
+  document.querySelectorAll("#brandFilters .chip").forEach(c => c.classList.remove("active"));
+  btn.classList.add("active");
+  updateUI();
+}
+
+function setSpace(space, btn) {
+  currentSpace = space;
+  document.querySelectorAll("#spaceFilters .chip").forEach(c => c.classList.remove("active"));
+  btn.classList.add("active");
+  updateUI();
+}
+
+function switchView(view) {
+  currentView = view;
+  const cardsEl = document.getElementById("cardsContainer");
+  const tableEl = document.getElementById("tableContainer");
+  const btnCard = document.getElementById("btnCardView");
+  const btnTable = document.getElementById("btnTableView");
+
+  if (view === "card") {
+    cardsEl.style.display = "grid";
+    tableEl.classList.remove("active");
+    btnCard.classList.add("active");
+    btnTable.classList.remove("active");
+  } else {
+    cardsEl.style.display = "none";
+    tableEl.classList.add("active");
+    btnCard.classList.remove("active");
+    btnTable.classList.add("active");
+  }
+}
+
+function openLightbox(url, caption, fallbackUrl) {
+  const lb = document.getElementById("lightbox");
+  const img = document.getElementById("lightboxImg");
+  img.onerror = function() { this.onerror = null; this.src = fallbackUrl; };
+  img.src = url;
+  document.getElementById("lightboxCap").textContent = caption;
+  lb.classList.add("open");
+}
+
+function closeLightbox() {
+  document.getElementById("lightbox").classList.remove("open");
+}
+
+function initCalculator() {
+  const sel = document.getElementById("calcTile");
+  sel.innerHTML = tilesData.map(t => `<option value="${t.id}">${t.id}. ${t.name}（${t.size}｜${t.perPingText}）</option>`).join("");
+  calcArea();
+}
+
+function calcArea() {
+  const id = parseInt(document.getElementById("calcTile").value, 10);
+  const ping = parseFloat(document.getElementById("calcPing").value) || 0;
+  const loss = parseFloat(document.getElementById("calcLoss").value) || 1;
+  const tile = tilesData.find(t => t.id === id);
+  if (!tile) return;
+
+  const pieces = Math.ceil(ping * tile.perPing * loss);
+  const boxes = Math.ceil(pieces / tile.packNum);
+  document.getElementById("resPieces").textContent = `${pieces} 片`;
+  document.getElementById("resBoxes").textContent = `${boxes} 箱`;
+  document.getElementById("resBoxNote").textContent = tile.pack.includes("片/箱") ? `規格：${tile.pack}` : `以約 ${tile.packNum} 片/箱估算`;
+}
+
+initCalculator();
+updateUI();
+</script>
+</body>
+</html>
