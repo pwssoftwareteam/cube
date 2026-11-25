@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>星都匯1D14 六角磚產品比較</title>
+<title>星都匯1D14 建材與家電比較手冊（六角磚 ／ 電冰箱）</title>
 <style>
   :root {
     --bg: #F6F4F0;
@@ -16,6 +16,9 @@
     --tag-fuyu: #8C5E3C;
     --tag-pucheng: #3D5A58;
     --tag-ccity: #5A5278;
+    --tag-hitachi: #8B2635;
+    --tag-panasonic: #005BAC;
+    --tag-lg: #A50034;
     --radius: 14px;
     --shadow: 0 4px 16px rgba(34, 37, 42, 0.06);
   }
@@ -36,10 +39,51 @@
     overflow-x: hidden;
   }
 
+  /* Top Navigation Tabs */
+  .page-tabs {
+    background: #1D2827;
+    padding: 8px 16px 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .page-tabs-inner {
+    max-width: 1120px;
+    width: 100%;
+    display: flex;
+    gap: 8px;
+  }
+
+  .page-tab {
+    border: none;
+    background: rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.78);
+    font-size: 13.5px;
+    font-weight: 700;
+    padding: 9px 18px;
+    border-radius: 10px 10px 0 0;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .page-tab:hover {
+    background: rgba(255,255,255,0.18);
+    color: #fff;
+  }
+
+  .page-tab.active {
+    background: #2B3A39;
+    color: #fff;
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.15);
+  }
+
   header {
     background: linear-gradient(135deg, #2B3A39 0%, #3D5A58 100%);
     color: #fff;
-    padding: 20px 16px 16px;
+    padding: 18px 16px 16px;
     position: sticky;
     top: 0;
     z-index: 40;
@@ -99,7 +143,7 @@
     border-bottom: 1px solid var(--line);
     padding: 10px 16px;
     position: sticky;
-    top: 68px;
+    top: 66px;
     z-index: 30;
   }
 
@@ -209,6 +253,9 @@
   .brand-fuyu { background: var(--tag-fuyu); }
   .brand-pucheng { background: var(--tag-pucheng); }
   .brand-ccity { background: var(--tag-ccity); }
+  .brand-hitachi { background: var(--tag-hitachi); }
+  .brand-panasonic { background: var(--tag-panasonic); }
+  .brand-lg { background: var(--tag-lg); }
 
   .tile-title {
     font-size: 17px;
@@ -235,7 +282,7 @@
     text-align: right;
   }
 
-  /* 3-Column Photo Gallery Grid inside Card (supports unlimited photos!) */
+  /* Photo Gallery Grid inside Card */
   .photo-gallery-wrap {
     padding: 10px 12px;
     background: #FAF8F5;
@@ -255,6 +302,55 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 6px;
+  }
+
+  .fridge-hero-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid rgba(0,0,0,0.06);
+  }
+
+  .fridge-thumb {
+    width: 105px;
+    height: 125px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid #EAE5DC;
+    cursor: zoom-in;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .fridge-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  .fridge-highlights {
+    flex: 1;
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .hl-tag {
+    display: inline-block;
+    background: #F4F1EB;
+    color: var(--ink);
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-size: 11.5px;
+    font-weight: 600;
   }
 
   .photo-item {
@@ -372,8 +468,8 @@
     border-bottom: 1px solid var(--line);
     border-right: 1px solid var(--line);
     vertical-align: top;
-    width: 185px;
-    max-width: 200px;
+    width: 195px;
+    max-width: 215px;
   }
 
   .comp-table th:first-child,
@@ -384,9 +480,9 @@
     background: #F4F1EB;
     font-weight: 700;
     color: var(--ink);
-    width: 105px;
-    min-width: 105px;
-    max-width: 105px;
+    width: 110px;
+    min-width: 110px;
+    max-width: 110px;
     border-right: 2px solid #D5CEC2;
   }
 
@@ -417,6 +513,17 @@
     display: block;
     cursor: zoom-in;
     background: #EAE5DC;
+  }
+
+  .tbl-fridge-thumb {
+    width: 100%;
+    height: 110px;
+    object-fit: contain;
+    border-radius: 6px;
+    display: block;
+    cursor: zoom-in;
+    background: #fff;
+    border: 1px solid #EAE5DC;
   }
 
   .tool-section {
@@ -540,6 +647,7 @@
     max-height: 75vh;
     border-radius: 10px;
     object-fit: contain;
+    background: #fff;
     box-shadow: 0 8px 30px rgba(0,0,0,0.5);
   }
 
@@ -580,142 +688,278 @@
     font-size: 20px;
     cursor: pointer;
   }
+
+  .hidden-page {
+    display: none !important;
+  }
 </style>
 </head>
 <body>
 
-<header>
-  <div class="header-top">
-    <div>
-      <h1>星都匯1D14 六角磚產品比較</h1>
-      <div class="subtitle">9款六角磚所有官網色卡、模花與空間實景圖</div>
-    </div>
-    <div class="view-toggle">
-      <button class="view-btn active" id="btnCardView" onclick="switchView('card')">圖卡模式</button>
-      <button class="view-btn" id="btnTableView" onclick="switchView('table')">直向比較表</button>
-    </div>
+<!-- Top Category Switcher -->
+<nav class="page-tabs">
+  <div class="page-tabs-inner">
+    <button class="page-tab active" id="tabTiles" onclick="switchPage('tiles')">🧱 六角磚比較 (9款)</button>
+    <button class="page-tab" id="tabFridges" onclick="switchPage('fridges')">❄️ 電冰箱比較 (7款)</button>
   </div>
-</header>
+</nav>
 
-<div class="filter-bar">
-  <div class="filter-inner">
-    <div class="filter-row" id="brandFilters">
-      <span class="filter-label">廠商：</span>
-      <button class="chip active" data-brand="all" onclick="setBrand('all', this)">全部 (10)</button>
-      <button class="chip" data-brand="富錥建材" onclick="setBrand('富錥建材', this)">富錥建材 (4)</button>
-      <button class="chip" data-brand="鏷城磁磚" onclick="setBrand('鏷城磁磚', this)">鏷城磁磚 (3)</button>
-      <button class="chip" data-brand="喜地磁磚" onclick="setBrand('喜地磁磚', this)">喜地磁磚 (3)</button>
+<!-- ==================== PAGE 1: HEXAGON TILES (UNCHANGED DATA) ==================== -->
+<div id="pageTiles">
+  <header>
+    <div class="header-top">
+      <div>
+        <h1>星都匯1D14 六角磚產品比較</h1>
+        <div class="subtitle">9款六角磚所有官網色卡、模花與空間實景圖</div>
+      </div>
+      <div class="view-toggle">
+        <button class="view-btn active" id="btnCardView" onclick="switchView('card')">圖卡模式</button>
+        <button class="view-btn" id="btnTableView" onclick="switchView('table')">直向比較表</button>
+      </div>
     </div>
-    <div class="filter-row" id="spaceFilters">
-      <span class="filter-label">空間：</span>
-      <button class="chip active" data-space="all" onclick="setSpace('all', this)">不限空間</button>
-      <button class="chip" data-space="玄關" onclick="setSpace('玄關', this)">玄關落塵區</button>
-      <button class="chip" data-space="浴室" onclick="setSpace('浴室', this)">浴室衛浴</button>
-      <button class="chip" data-space="廚房" onclick="setSpace('廚房', this)">廚房</button>
-      <button class="chip" data-space="大面積" onclick="setSpace('大面積', this)">客餐廳 / 陽台大面積</button>
+  </header>
+
+  <div class="filter-bar">
+    <div class="filter-inner">
+      <div class="filter-row" id="brandFilters">
+        <span class="filter-label">廠商：</span>
+        <button class="chip active" data-brand="all" onclick="setBrand('all', this)">全部 (9)</button>
+        <button class="chip" data-brand="富錥建材" onclick="setBrand('富錥建材', this)">富錥建材 (4)</button>
+        <button class="chip" data-brand="鏷城磁磚" onclick="setBrand('鏷城磁磚', this)">鏷城磁磚 (3)</button>
+        <button class="chip" data-brand="喜地磁磚" onclick="setBrand('喜地磁磚', this)">喜地磁磚 (2)</button>
+      </div>
+      <div class="filter-row" id="spaceFilters">
+        <span class="filter-label">空間：</span>
+        <button class="chip active" data-space="all" onclick="setSpace('all', this)">不限空間</button>
+        <button class="chip" data-space="玄關" onclick="setSpace('玄關', this)">玄關落塵區</button>
+        <button class="chip" data-space="浴室" onclick="setSpace('浴室', this)">浴室衛浴</button>
+        <button class="chip" data-space="廚房" onclick="setSpace('廚房', this)">廚房</button>
+        <button class="chip" data-space="大面積" onclick="setSpace('大面積', this)">客餐廳 / 陽台大面積</button>
+      </div>
     </div>
   </div>
+
+  <main>
+    <div class="status-bar">
+      <span id="resultCount">顯示全部 9 款六角磚（點擊照片可全螢幕放大並左右切換）</span>
+      <span>全數收錄官網完整圖集</span>
+    </div>
+
+    <!-- Card View -->
+    <div class="cards-grid" id="cardsContainer"></div>
+
+    <!-- Vertical Table View -->
+    <div class="table-wrap" id="tableContainer"></div>
+
+    <!-- Calculator & Vendors -->
+    <div class="tool-section">
+      <div class="panel">
+        <h2>📐 坪數與片數 / 箱數試算器</h2>
+        <div class="calc-grid">
+          <div class="calc-field full">
+            <label>選擇磁磚款式</label>
+            <select id="calcTile" onchange="calcArea()"></select>
+          </div>
+          <div class="calc-field">
+            <label>預計施作坪數</label>
+            <input type="number" id="calcPing" value="1.5" min="0.1" step="0.1" oninput="calcArea()">
+          </div>
+          <div class="calc-field">
+            <label>預留施工損耗</label>
+            <select id="calcLoss" onchange="calcArea()">
+              <option value="1.05" selected>+5%（標準對縫）</option>
+              <option value="1.08">+8%（斜切 / 多轉角）</option>
+              <option value="1.00">0%（不計損耗）</option>
+            </select>
+          </div>
+        </div>
+        <div class="calc-result">
+          <div>
+            <span class="calc-num" id="resPieces">189 片</span>
+            <span>預估總片數</span>
+          </div>
+          <div>
+            <span class="calc-num" id="resBoxes">6 箱</span>
+            <span id="resBoxNote">每箱 35 片</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>📍 三家廠商門市與看樣資訊</h2>
+        <div class="vendor-item">
+          <div class="vendor-top">
+            <strong>富錥建材（台灣製為主）</strong>
+            <div class="vendor-actions">
+              <a class="btn-mini" href="tel:034607090">📞 撥打</a>
+              <a class="btn-mini" href="https://maps.google.com/?q=桃園市平鎮區龍南路140號" target="_blank" rel="noopener">🗺️ 導航</a>
+            </div>
+          </div>
+          <div>桃園市平鎮區龍南路140號 ｜ 03-4607090</div>
+          <div style="color:var(--muted);font-size:11.5px;">週一至週五 08:00–18:00（週末預約制）｜ LINE: @259ihurv</div>
+        </div>
+
+        <div class="vendor-item">
+          <div class="vendor-top">
+            <strong>鏷城精品磁磚（進口霧面磚）</strong>
+            <div class="vendor-actions">
+              <a class="btn-mini" href="tel:0227067077">📞 撥打</a>
+              <a class="btn-mini" href="https://maps.google.com/?q=台北市大安區和平東路二段107巷8號" target="_blank" rel="noopener">🗺️ 導航</a>
+            </div>
+          </div>
+          <div>台北市大安區和平東路二段107巷8號 ｜ 02-2706-7077</div>
+          <div style="color:var(--muted);font-size:11.5px;">週一至週五 09:00–18:00、週六 09:00–17:00</div>
+        </div>
+
+        <div class="vendor-item">
+          <div class="vendor-top">
+            <strong>喜地精品磁磚（西班牙 / 義大利進口）</strong>
+            <div class="vendor-actions">
+              <a class="btn-mini" href="tel:0227365678">📞 撥打</a>
+              <a class="btn-mini" href="https://maps.google.com/?q=台北市大安區基隆路二段222號" target="_blank" rel="noopener">🗺️ 導航</a>
+            </div>
+          </div>
+          <div>台北市大安區基隆路二段222號+224號2樓（近六張犁站）｜ 02-2736-5678</div>
+          <div style="color:var(--muted);font-size:11.5px;">週一至週五 09:00–19:00、週六 10:30–19:00（週日公休，建議預留1hr）</div>
+        </div>
+      </div>
+    </div>
+  </main>
 </div>
 
-<main>
-  <div class="status-bar">
-    <span id="resultCount">顯示全部 10 款六角磚（點擊照片可全螢幕放大並左右切換）</span>
-    <span>全數收錄官網完整圖集</span>
-  </div>
-
-  <!-- Card View -->
-  <div class="cards-grid" id="cardsContainer"></div>
-
-  <!-- Vertical Table View -->
-  <div class="table-wrap" id="tableContainer"></div>
-
-  <!-- Calculator & Vendors -->
-  <div class="tool-section">
-    <div class="panel">
-      <h2>📐 坪數與片數 / 箱數試算器</h2>
-      <div class="calc-grid">
-        <div class="calc-field full">
-          <label>選擇磁磚款式</label>
-          <select id="calcTile" onchange="calcArea()"></select>
-        </div>
-        <div class="calc-field">
-          <label>預計施作坪數</label>
-          <input type="number" id="calcPing" value="1.5" min="0.1" step="0.1" oninput="calcArea()">
-        </div>
-        <div class="calc-field">
-          <label>預留施工損耗</label>
-          <select id="calcLoss" onchange="calcArea()">
-            <option value="1.05" selected>+5%（標準對縫）</option>
-            <option value="1.08">+8%（斜切 / 多轉角）</option>
-            <option value="1.00">0%（不計損耗）</option>
-          </select>
-        </div>
+<!-- ==================== PAGE 2: REFRIGERATORS COMPARISON ==================== -->
+<div id="pageFridges" class="hidden-page">
+  <header>
+    <div class="header-top">
+      <div>
+        <h1>星都匯1D14 電冰箱規格比較</h1>
+        <div class="subtitle">日立 HITACHI ・ 國際牌 Panasonic ・ 樂金 LG（共 7 款精選機型）</div>
       </div>
-      <div class="calc-result">
-        <div>
-          <span class="calc-num" id="resPieces">189 片</span>
-          <span>預估總片數</span>
-        </div>
-        <div>
-          <span class="calc-num" id="resBoxes">6 箱</span>
-          <span id="resBoxNote">每箱 35 片</span>
-        </div>
+      <div class="view-toggle">
+        <button class="view-btn active" id="btnFridgeCardView" onclick="switchFridgeView('card')">圖卡模式</button>
+        <button class="view-btn" id="btnFridgeTableView" onclick="switchFridgeView('table')">直向比較表</button>
       </div>
     </div>
+  </header>
 
-    <div class="panel">
-      <h2>📍 三家廠商門市與看樣資訊</h2>
-      <div class="vendor-item">
-        <div class="vendor-top">
-          <strong>富錥建材（台灣製為主）</strong>
-          <div class="vendor-actions">
-            <a class="btn-mini" href="tel:034607090">📞 撥打</a>
-            <a class="btn-mini" href="https://maps.google.com/?q=桃園市平鎮區龍南路140號" target="_blank" rel="noopener">🗺️ 導航</a>
-          </div>
-        </div>
-        <div>桃園市平鎮區龍南路140號 ｜ 03-4607090</div>
-        <div style="color:var(--muted);font-size:11.5px;">週一至週五 08:00–18:00（週末預約制）｜ LINE: @259ihurv</div>
+  <div class="filter-bar">
+    <div class="filter-inner">
+      <div class="filter-row" id="fridgeBrandFilters">
+        <span class="filter-label">品牌：</span>
+        <button class="chip active" onclick="setFridgeBrand('all', this)">全部 (7)</button>
+        <button class="chip" onclick="setFridgeBrand('日立 HITACHI', this)">日立 HITACHI (3)</button>
+        <button class="chip" onclick="setFridgeBrand('Panasonic 國際牌', this)">Panasonic (3)</button>
+        <button class="chip" onclick="setFridgeBrand('LG 樂金', this)">LG 樂金 (1)</button>
       </div>
-
-      <div class="vendor-item">
-        <div class="vendor-top">
-          <strong>鏷城精品磁磚（進口霧面磚）</strong>
-          <div class="vendor-actions">
-            <a class="btn-mini" href="tel:0227067077">📞 撥打</a>
-            <a class="btn-mini" href="https://maps.google.com/?q=台北市大安區和平東路二段107巷8號" target="_blank" rel="noopener">🗺️ 導航</a>
-          </div>
-        </div>
-        <div>台北市大安區和平東路二段107巷8號 ｜ 02-2706-7077</div>
-        <div style="color:var(--muted);font-size:11.5px;">週一至週五 09:00–18:00、週六 09:00–17:00</div>
-      </div>
-
-      <div class="vendor-item">
-        <div class="vendor-top">
-          <strong>喜地精品磁磚（西班牙 / 義大利進口）</strong>
-          <div class="vendor-actions">
-            <a class="btn-mini" href="tel:0227365678">📞 撥打</a>
-            <a class="btn-mini" href="https://maps.google.com/?q=台北市大安區基隆路二段222號" target="_blank" rel="noopener">🗺️ 導航</a>
-          </div>
-        </div>
-        <div>台北市大安區基隆路二段222號+224號2樓（近六張犁站）｜ 02-2736-5678</div>
-        <div style="color:var(--muted);font-size:11.5px;">週一至週五 09:00–19:00、週六 10:30–19:00（週日公休，建議預留1hr）</div>
+      <div class="filter-row" id="fridgeDepthFilters">
+        <span class="filter-label">條件：</span>
+        <button class="chip active" onclick="setFridgeFilter('all', this)">全部規格</button>
+        <button class="chip" onclick="setFridgeFilter('shallow', this)">薄型深度 65cm（齊平櫥櫃）</button>
+        <button class="chip" onclick="setFridgeFilter('japan', this)">日本製原裝</button>
+        <button class="chip" onclick="setFridgeFilter('sixdoor', this)">六門機種</button>
+        <button class="chip" onclick="setFridgeFilter('fourdoor', this)">四門機種</button>
       </div>
     </div>
   </div>
-</main>
 
-<!-- Lightbox with Prev/Next navigation -->
+  <main>
+    <div class="status-bar">
+      <span id="fridgeResultCount">顯示全部 7 款電冰箱（點擊圖片可放大檢視）</span>
+      <span>支援廚房預留空間檢核</span>
+    </div>
+
+    <!-- Fridge Card View -->
+    <div class="cards-grid" id="fridgeCardsContainer"></div>
+
+    <!-- Fridge Vertical Table View -->
+    <div class="table-wrap" id="fridgeTableContainer"></div>
+
+    <!-- Kitchen Space Fit Checker & Summary -->
+    <div class="tool-section">
+      <div class="panel">
+        <h2>📏 廚房預留空間尺寸檢核器</h2>
+        <div class="calc-grid">
+          <div class="calc-field">
+            <label>冰箱預留寬度 (cm)</label>
+            <input type="number" id="spaceW" value="90" min="50" step="1" oninput="checkFridgeFit()">
+          </div>
+          <div class="calc-field">
+            <label>冰箱預留深度 (cm)</label>
+            <input type="number" id="spaceD" value="75" min="50" step="1" oninput="checkFridgeFit()">
+          </div>
+          <div class="calc-field full">
+            <label>冰箱預留高度 (cm)</label>
+            <input type="number" id="spaceH" value="192" min="150" step="1" oninput="checkFridgeFit()">
+          </div>
+        </div>
+        <div id="fitResultList" style="margin-top:12px;font-size:12.5px;display:flex;flex-direction:column;gap:6px;"></div>
+      </div>
+
+      <div class="panel">
+        <h2>💡 7 款冰箱選購重點快速對照</h2>
+        <div class="vendor-item">
+          <strong>1. 櫥櫃齊平 / 淺深度首選（深度 65 cm）</strong>
+          <div style="color:var(--muted);margin-top:2px;">
+            <strong>日立 R-GG670YJ</strong> 與 <strong>R-GG670TJ</strong> 機身深度僅 65 cm（寬 88 cm），能完美貼合系統廚具深度不突出。兩者容量與尺寸相同，<strong>YJ 為新世代改款</strong>（年耗電 300 度、EF 值 31.1 較 TJ 的 348 度更省電）。
+          </div>
+        </div>
+        <div class="vendor-item">
+          <strong>2. 窄寬度（68.5～75 cm）＋ 日製六門高省電</strong>
+          <div style="color:var(--muted);margin-top:2px;">
+            若廚房寬度不足 88 cm，可選 <strong>Panasonic NR-F653WX</strong>（寬 75 cm / 650L）或 <strong>NR-F603WX</strong>（寬 68.5 cm / 600L），均為日本製無邊框玻璃六門，具備 -3℃ 微凍結與 nanoe™ X。
+          </div>
+        </div>
+        <div class="vendor-item">
+          <strong>3. 頂規旗艦大容量（741L 電動門/電動抽屜）</strong>
+          <div style="color:var(--muted);margin-top:2px;">
+            <strong>日立 R-ZXC740KJ</strong> 為 741L 旗艦款，配備冷藏室觸控電動雙開門、下層電動抽屜與真空冰溫室（±1℃ 設定），適合大坪數廚房與重度開伙家庭。
+          </div>
+        </div>
+        <div class="vendor-item">
+          <strong>4. 高 CP 值四門機種（5 萬～6 萬級距）</strong>
+          <div style="color:var(--muted);margin-top:2px;">
+            <strong>Panasonic NR-D541PG</strong>（540L / 寬 75 cm / 霧面玻璃＋冰水霸）與 <strong>LG GV-NB61BG</strong>（619L / 寬 83.5 cm / 曜石黑鏡面＋四方吹冷流）皆為四門設計，價格約為日製六門的一半至六折。
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- Shared Lightbox with Prev/Next navigation -->
 <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
   <button class="lightbox-close" onclick="closeLightbox(event, true)">×</button>
   <img id="lightboxImg" src="" alt="" referrerpolicy="no-referrer" onclick="event.stopPropagation()">
   <div class="lightbox-caption" id="lightboxCap" onclick="event.stopPropagation()"></div>
-  <div class="lightbox-nav" onclick="event.stopPropagation()">
+  <div class="lightbox-nav" id="lightboxNav" onclick="event.stopPropagation()">
     <button class="lb-nav-btn" onclick="stepLightbox(-1)">‹ 上一張</button>
     <button class="lb-nav-btn" onclick="stepLightbox(1)">下一張 ›</button>
   </div>
 </div>
 
 <script>
+// ==================== PAGE SWITCHER ====================
+function switchPage(page) {
+  const pTiles = document.getElementById("pageTiles");
+  const pFridges = document.getElementById("pageFridges");
+  const tTiles = document.getElementById("tabTiles");
+  const tFridges = document.getElementById("tabFridges");
+
+  if (page === "tiles") {
+    pTiles.classList.remove("hidden-page");
+    pFridges.classList.add("hidden-page");
+    tTiles.classList.add("active");
+    tFridges.classList.remove("active");
+  } else {
+    pTiles.classList.add("hidden-page");
+    pFridges.classList.remove("hidden-page");
+    tTiles.classList.remove("active");
+    tFridges.classList.add("active");
+  }
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+// ==================== HEXAGON TILES DATA & LOGIC (PRESERVED EXACTLY) ====================
 function makeHexFallback(c1, c2, c3, label) {
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
     <rect width="400" height="400" fill="#EFECE6"/>
@@ -1177,6 +1421,7 @@ function openTileLightbox(tileId, photoIdx) {
   lbIndex = photoIdx;
   lbTitle = tile.name;
   lbFallback = makeHexFallback(tile.fallbackColors[0], tile.fallbackColors[1], tile.fallbackColors[2], tile.name);
+  document.getElementById("lightboxNav").style.display = lbPhotos.length > 1 ? "flex" : "none";
   updateLightboxContent();
   document.getElementById("lightbox").classList.add("open");
 }
@@ -1221,8 +1466,430 @@ function calcArea() {
   document.getElementById("resBoxNote").textContent = tile.pack.includes("片/箱") ? `規格：${tile.pack}` : `以約 ${tile.packNum} 片/箱估算`;
 }
 
+// ==================== REFRIGERATORS DATA & LOGIC ====================
+function makeFridgeFallback(brand, model, doors, cap, colorHex) {
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="320" height="400" viewBox="0 0 320 400">
+    <rect width="320" height="400" fill="#F8F7F4"/>
+    <rect x="75" y="25" width="170" height="310" rx="10" fill="${colorHex}" stroke="#B8B4AC" stroke-width="3"/>
+    <line x1="160" y1="25" x2="160" y2="175" stroke="#D0CCC4" stroke-width="2.5"/>
+    <line x1="75" y1="175" x2="245" y2="175" stroke="#D0CCC4" stroke-width="2.5"/>
+    <line x1="75" y1="225" x2="245" y2="225" stroke="#D0CCC4" stroke-width="2.5"/>
+    <line x1="75" y1="280" x2="245" y2="280" stroke="#D0CCC4" stroke-width="2.5"/>
+    <text x="160" y="362" font-family="sans-serif" font-size="14" font-weight="bold" fill="#222" text-anchor="middle">${model}</text>
+    <text x="160" y="382" font-family="sans-serif" font-size="12" fill="#666" text-anchor="middle">${doors} ｜ ${cap}</text>
+  </svg>`;
+  return "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(svg);
+}
+
+const fridgesData = [
+  {
+    id: 1,
+    brand: "日立 HITACHI",
+    brandClass: "brand-hitachi",
+    model: "R-ZXC740KJ",
+    title: "日立 R-ZXC740KJ（旗艦電動門六門琉璃）",
+    capacity: "741 L",
+    capNum: 741,
+    compartments: "冷藏 392L ／ 上冷凍 42L ／ 製冰 27L ／ 下冷凍 143L ／ 蔬果 137L",
+    doors: "六門（電動雙開門＋電動抽屜）",
+    doorType: "sixdoor",
+    panel: "強化琉璃（琉璃黑 XK ／ 琉璃白 XW ／ 琉璃鏡 X）",
+    dimensions: "寬 88.0 × 深 73.8 × 高 183.3 cm",
+    dimW: 88.0, dimD: 73.8, dimH: 183.3,
+    clearance: "左右各 0.5 cm、上方 5.0 cm、後方 0 cm",
+    origin: "日本",
+    isJapan: true,
+    isShallow: false,
+    energy: "第 1 級能效（EF 30.4 ／ 年耗電約 336 度）",
+    priceRange: "約 NT$143,000 ～ $156,000",
+    highlights: ["741L 業界最大容量", "冷藏觸控電動雙開門", "冷凍/蔬果電動抽屜", "真空冰溫室 ±1℃"],
+    features: "冷藏室觸控式自動雙開門、下層輕壓電動抽屜、Ru低溫白金奈米觸媒真空冰溫室（+1℃/-1℃切換）、即鮮冷藏區熱食免放涼、IoT 手機遠端遙控。",
+    url: "https://hitachi-homeappliances.com.tw/products/products_03.php?pid=RZXC740KJ",
+    fallbackColor: "#2E3136",
+    photo: "https://img.pchome.com.tw/cs/items/DPACGWA900BFNBZ/000007_1622787459.jpg"
+  },
+  {
+    id: 2,
+    brand: "日立 HITACHI",
+    brandClass: "brand-hitachi",
+    model: "R-GG670YJ",
+    title: "日立 R-GG670YJ（新款 65cm 薄型六門琉璃）",
+    capacity: "662 L",
+    capNum: 662,
+    compartments: "冷藏 344L ／ 上冷凍 31L ／ 製冰 29L ／ 下冷凍 134L ／ 蔬果 124L",
+    doors: "六門（1:1對開冷藏＋兩側隱藏把手抽屜）",
+    doorType: "sixdoor",
+    panel: "強化琉璃（紫霧琉璃鏡 XM ／ 琉璃黑 XK ／ 琉璃白 XW）",
+    dimensions: "寬 88.0 × 深 65.0 × 高 184.3 cm",
+    dimW: 88.0, dimD: 65.0, dimH: 184.3,
+    clearance: "左右各 0.5 cm、上方 5.0 cm、後方 0 cm（需留兩側拉抽空間）",
+    origin: "日本",
+    isJapan: true,
+    isShallow: true,
+    energy: "第 1 級能效（EF 31.1 ／ 年耗電 300 度）",
+    priceRange: "約 NT$83,500 ～ $97,400",
+    highlights: ["淺型 65cm 齊平櫥櫃", "獨立雙循環冷卻系統", "年耗電僅 300 度", "白金真空睡眠冰溫室"],
+    features: "2025/2026 新款薄壁美學設計，65cm 深度完美貼合系統櫥櫃；搭載約 0.8 氣壓白金真空冰溫室（-1℃不結凍）、約 2℃ 獨立鎖濕冷藏與雙冷卻器系統。",
+    url: "https://hitachi-homeappliances.com.tw/products/products_03.php?pid=RGG670YJ",
+    fallbackColor: "#484452",
+    photo: "https://www.3uo.tw/wp-content/uploads/RGG670YJ.jpg"
+  },
+  {
+    id: 3,
+    brand: "日立 HITACHI",
+    brandClass: "brand-hitachi",
+    model: "R-GG670TJ",
+    title: "日立 R-GG670TJ（65cm 薄型六門琉璃）",
+    capacity: "662 L",
+    capNum: 662,
+    compartments: "冷藏 344L ／ 上冷凍 31L ／ 製冰 29L ／ 下冷凍 134L ／ 蔬果 124L",
+    doors: "六門（1:1對開冷藏＋兩側隱藏把手抽屜）",
+    doorType: "sixdoor",
+    panel: "強化琉璃（紫霧琉璃鏡 XM ／ 琉璃黑 XK ／ 琉璃白 XW）",
+    dimensions: "寬 88.0 × 深 65.0 × 高 184.3 cm",
+    dimW: 88.0, dimD: 65.0, dimH: 184.3,
+    clearance: "左右各 0.5 cm、上方 5.0 cm、後方 0 cm（需留兩側拉抽空間）",
+    origin: "日本",
+    isJapan: true,
+    isShallow: true,
+    energy: "第 1 級能效（EF 28.5 ／ 年耗電 348 度）",
+    priceRange: "約 NT$91,600 ～ $97,400",
+    highlights: ["淺型 65cm 齊平櫥櫃", "黑化美型內裝層架", "特鮮急冷藏 60 分鐘", "獨立雙循環冷卻"],
+    features: "R-GG670YJ 的前一代同尺寸姐妹機，具備 65cm 淺型機身、1:1 對開門比例與黑化質感層架，內建真空睡眠冰溫室與白金蔬果睡眠保鮮室（耗電量略高於 YJ 款）。",
+    url: "https://hitachi-homeappliances.com.tw/products/products_feature.php?pid=RGG670TJ",
+    fallbackColor: "#3D3A47",
+    photo: "https://hitachi-homeappliances.com.tw/upload/products/pgroup23502408100348.jpg"
+  },
+  {
+    id: 4,
+    brand: "Panasonic 國際牌",
+    brandClass: "brand-panasonic",
+    model: "NR-F653WX",
+    title: "Panasonic NR-F653WX（日製無邊框六門玻璃）",
+    capacity: "650 L",
+    capNum: 650,
+    compartments: "冷藏 314L（含-3℃微凍結21L）／ 製冰 24L ／ 新鮮急凍結 33L ／ 冷凍 123L ／ 蔬果 135L",
+    doors: "六門（100%全開式抽屜設計）",
+    doorType: "sixdoor",
+    panel: "無邊框鏡面/霧面玻璃（鑽石黑 X1 ／ 霧晶灰 H1 ／ 霧晶白 W1）",
+    dimensions: "寬 75.0 × 深 74.5 × 高 182.8 cm",
+    dimW: 75.0, dimD: 74.5, dimH: 182.8,
+    clearance: "左右各 0.5 cm、上方 5.0 cm",
+    origin: "日本",
+    isJapan: true,
+    isShallow: false,
+    energy: "超越 2027 新 1 級能效（EF 30.1 ／ 年耗電 312 度）",
+    priceRange: "約 NT$83,500 ～ $96,100",
+    highlights: ["寬度僅 75cm 大容量", "全幅抑霜鮮凍技術", "-3℃ 微凍結免解凍", "nanoe™ X 抑菌除臭"],
+    features: "在 75cm 窄寬度內創造 650L 大容量，上置式變頻壓縮機釋放底部空間；搭載全幅抑霜鮮凍、新鮮急凍結室、-3℃ 微凍結與 IoT 智慧聯網。",
+    url: "https://www.panasonic.com/tw/consumer/refrigerator/six-door/nr-f653wx.html",
+    fallbackColor: "#EAECEF",
+    photo: "https://img.pchome.com.tw/cs/items/DPACHEA900KO32A/000001_1793951122.jpg"
+  },
+  {
+    id: 5,
+    brand: "Panasonic 國際牌",
+    brandClass: "brand-panasonic",
+    model: "NR-F603WX",
+    title: "Panasonic NR-F603WX（68.5cm 窄身日製六門）",
+    capacity: "600 L",
+    capNum: 600,
+    compartments: "冷藏 312L（含-3℃微凍結19L）／ 製冰 19L ／ 新鮮急凍 31L ／ 冷凍 113L ／ 蔬果 125L",
+    doors: "六門（100%全開式抽屜設計）",
+    doorType: "sixdoor",
+    panel: "無邊框鏡面/霧面玻璃（鑽石黑 X1 ／ 霧晶灰 H1 ／ 霧晶白 W1）",
+    dimensions: "寬 68.5 × 深 74.5 × 高 182.8 cm",
+    dimW: 68.5, dimD: 74.5, dimH: 182.8,
+    clearance: "左右各 0.5 cm、上方 5.0 cm",
+    origin: "日本",
+    isJapan: true,
+    isShallow: false,
+    energy: "超越 2027 新 1 級能效（EF 31.3 ／ 年耗電 276 度）",
+    priceRange: "約 NT$74,000 ～ $86,100",
+    highlights: ["68.5cm 超窄身寬度", "年耗電僅 276 度最省電", "-3℃ 微凍結＋急凍結", "nanoe™ X 健康科技"],
+    features: "與 NR-F653WX 同系列機能，但寬度縮減至 68.5 cm，特別適合預留寬度 70～75 cm 的現代廚房；年耗電僅 276 度，為 7 款中最省電機種。",
+    url: "https://www.panasonic.com/tw/consumer/refrigerator/six-door/nr-f603wx.html",
+    fallbackColor: "#DCE0E5",
+    photo: "https://www.fuchia.tw/v2/data/media/7/292e64ad6e251d013812b67e80ae6601/ab1c5ef9b7171709a1e020eb22ee8aaa_l.jpg"
+  },
+  {
+    id: 6,
+    brand: "Panasonic 國際牌",
+    brandClass: "brand-panasonic",
+    model: "NR-D541PG",
+    title: "Panasonic NR-D541PG（四門霧面玻璃＋冰水霸）",
+    capacity: "540 L",
+    capNum: 540,
+    compartments: "冷藏 293L ／ -3℃ 微凍結室 61L ／ 冷凍室 186L",
+    doors: "四門（上對開冷藏 ＋ 中抽屜微凍結 ＋ 下單開冷凍）",
+    doorType: "fourdoor",
+    panel: "無邊框霧面玻璃（極緻灰 H1）",
+    dimensions: "寬 75.0 × 深 75.0 × 高 189.0 cm",
+    dimW: 75.0, dimD: 75.0, dimH: 189.0,
+    clearance: "左右各 2.0 cm、上方 5.0 cm、後方 5.0 cm",
+    origin: "越南",
+    isJapan: false,
+    isShallow: false,
+    energy: "新 1 級能效（EF 26.3 ／ 年耗電 312 度）",
+    priceRange: "約 NT$50,850 ～ $54,900",
+    highlights: ["門外直接取用冰水霸", "61L 超大 -3℃ 微凍結", "霧面玻璃抗指紋工藝", "5萬級距高性價比"],
+    features: "輕奢品味系列四門冰箱，門扉內建「冰水霸」免開門即可取用冰涼飲水；具備獨立 61L -3℃ 微凍結室、新鮮急凍結與 nanoe™ X 抑菌。",
+    url: "https://www.panasonic.com/tw/consumer/refrigerator/four-door/nr-d541pg.html",
+    fallbackColor: "#5C6066",
+    photo: "https://i1.momoshop.com.tw/1792121163/goodsimg/0011/961/671/11961671_R_m.webp"
+  },
+  {
+    id: 7,
+    brand: "LG 樂金",
+    brandClass: "brand-lg",
+    model: "GV-NB61BG",
+    title: "LG GV-NB61BG（曜石黑鏡面智慧變頻四門）",
+    capacity: "619 L",
+    capNum: 619,
+    compartments: "冷藏 443L ／ 冷凍 176L（含隨選變溫保鮮室）",
+    doors: "四門（上對開冷藏 ＋ 下雙開冷凍）",
+    doorType: "fourdoor",
+    panel: "曜石黑鏡面玻璃",
+    dimensions: "寬 83.5 × 深 73.6 × 高 186.0 cm",
+    dimW: 83.5, dimD: 73.6, dimH: 186.0,
+    clearance: "左右各 2.0 cm、上方 5.0 cm、後方 5.0 cm",
+    origin: "越南",
+    isJapan: false,
+    isShallow: false,
+    energy: "第 1 級能效（年耗電約 336 度）",
+    priceRange: "約 NT$49,500 ～ $56,900",
+    highlights: ["DoorCooling+™ 四方吹冷流", "LinearCooling™ 精準溫控", "FRESHConverter™ 變溫室", "壓縮機 10 年保固"],
+    features: "美型曜石黑鏡面四門設計，上方冷流瀑布快速冷卻門邊飲品；內部配有隨選變溫保鮮室（可調肉類/魚類/蔬果模式）與移動式自動製冰器，支援 ThinQ Wi-Fi 遠控。",
+    url: "https://www.lg.com/tw/refrigerators/multi-door/gv-nb61bg/",
+    fallbackColor: "#222426",
+    photo: "https://www.3uo.tw/wp-content/uploads/GV-NB61BG.jpg"
+  }
+];
+
+let currentFridgeBrand = "all";
+let currentFridgeFilter = "all";
+let currentFridgeView = "card";
+
+function getFilteredFridges() {
+  return fridgesData.filter(f => {
+    const matchBrand = currentFridgeBrand === "all" || f.brand === currentFridgeBrand;
+    let matchCond = true;
+    if (currentFridgeFilter === "shallow") matchCond = f.isShallow;
+    else if (currentFridgeFilter === "japan") matchCond = f.isJapan;
+    else if (currentFridgeFilter === "sixdoor") matchCond = f.doorType === "sixdoor";
+    else if (currentFridgeFilter === "fourdoor") matchCond = f.doorType === "fourdoor";
+    return matchBrand && matchCond;
+  });
+}
+
+function renderFridgeCards(list) {
+  const container = document.getElementById("fridgeCardsContainer");
+  if (list.length === 0) {
+    container.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:40px 16px;color:var(--muted);background:#fff;border-radius:14px;">沒有符合目前條件的冰箱，請切換上方篩選按鈕。</div>`;
+    return;
+  }
+
+  container.innerHTML = list.map(f => {
+    const fb = makeFridgeFallback(f.brand, f.model, f.doors.split("（")[0], f.capacity, f.fallbackColor);
+    const hlHtml = f.highlights.map(h => `<span class="hl-tag">✓ ${h}</span>`).join("");
+
+    return `
+      <article class="tile-card">
+        <div class="card-header">
+          <div>
+            <span class="brand-badge ${f.brandClass}">${f.brand} ・ ${f.origin}製</span>
+            <h3 class="tile-title">${f.id}. ${f.title}</h3>
+            <div class="tile-model">型號：${f.model} ｜ 參考市價：${f.priceRange}</div>
+          </div>
+          <div class="size-pill">${f.capacity}<br><span style="font-size:10.5px;font-weight:500;">${f.doorType === 'sixdoor' ? '六門機種' : '四門機種'}</span></div>
+        </div>
+
+        <div class="photo-gallery-wrap">
+          <div class="fridge-hero-box">
+            <div class="fridge-thumb" onclick="openSingleLightbox('${f.photo}', '${f.title}', '${fb}')">
+              <img src="${f.photo}" alt="${f.model}" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='${fb}';">
+            </div>
+            <div class="fridge-highlights">
+              ${hlHtml}
+            </div>
+          </div>
+        </div>
+
+        <div class="spec-list">
+          <div class="spec-box">
+            <span class="spec-k">機體尺寸（寬×深×高）</span>
+            <span class="spec-v" style="color:var(--accent);">${f.dimensions}</span>
+          </div>
+          <div class="spec-box">
+            <span class="spec-k">能源效率 / 耗電</span>
+            <span class="spec-v">${f.energy}</span>
+          </div>
+          <div class="spec-box full">
+            <span class="spec-k">門數與面板材質</span>
+            <span class="spec-v">${f.doors} ｜ ${f.panel}</span>
+          </div>
+          <div class="spec-box full">
+            <span class="spec-k">各室容量分配</span>
+            <span class="spec-v" style="font-weight:500;">${f.compartments}</span>
+          </div>
+          <div class="spec-box full">
+            <span class="spec-k">保鮮與核心機能</span>
+            <span class="spec-v" style="font-weight:500;">${f.features}</span>
+          </div>
+        </div>
+
+        <div class="card-footer">
+          <span style="color:var(--muted);font-size:11px;">散熱空間：${f.clearance}</span>
+          <a class="ext-link" href="${f.url}" target="_blank" rel="noopener">開啟官網 ↗</a>
+        </div>
+      </article>
+    `;
+  }).join("");
+}
+
+function renderFridgeTable(list) {
+  const wrap = document.getElementById("fridgeTableContainer");
+  if (list.length === 0) {
+    wrap.innerHTML = `<div style="text-align:center;padding:40px 16px;color:var(--muted);">沒有符合目前篩選條件的冰箱。</div>`;
+    return;
+  }
+
+  const headCols = list.map(f => `<th>${f.id}. ${f.model}</th>`).join("");
+  const rows = [
+    {
+      label: "產品外觀圖",
+      cells: list.map(f => {
+        const fb = makeFridgeFallback(f.brand, f.model, f.doors.split("（")[0], f.capacity, f.fallbackColor);
+        return `<td>
+          <img class="tbl-fridge-thumb" src="${f.photo}" alt="${f.model}" referrerpolicy="no-referrer" onclick="openSingleLightbox('${f.photo}', '${f.title}', '${fb}')" onerror="this.onerror=null;this.src='${fb}';">
+          <div style="font-size:11px;color:var(--muted);margin-top:4px;text-align:center;">點圖放大</div>
+        </td>`;
+      }).join("")
+    },
+    { label: "品牌 / 產地", cells: list.map(f => `<td><strong>${f.brand}</strong><br>${f.origin}製造</td>`).join("") },
+    { label: "總有效容量", cells: list.map(f => `<td><strong style="font-size:14px;color:var(--accent);">${f.capacity}</strong></td>`).join("") },
+    { label: "機體尺寸<br>(寬×深×高)", cells: list.map(f => `<td><strong>${f.dimensions}</strong></td>`).join("") },
+    { label: "建議散熱空間", cells: list.map(f => `<td style="font-size:11.5px;">${f.clearance}</td>`).join("") },
+    { label: "門數設計", cells: list.map(f => `<td>${f.doors}</td>`).join("") },
+    { label: "外觀材質/色系", cells: list.map(f => `<td>${f.panel}</td>`).join("") },
+    { label: "各室容量分配", cells: list.map(f => `<td style="font-size:11.5px;">${f.compartments}</td>`).join("") },
+    { label: "能效與耗電", cells: list.map(f => `<td>${f.energy}</td>`).join("") },
+    { label: "核心保鮮機能", cells: list.map(f => `<td style="font-size:11.5px;">${f.features}</td>`).join("") },
+    { label: "市場參考價位", cells: list.map(f => `<td><strong>${f.priceRange}</strong></td>`).join("") },
+    { label: "官方網頁", cells: list.map(f => `<td><a class="ext-link" href="${f.url}" target="_blank" rel="noopener">查看官網 ↗</a></td>`).join("") }
+  ];
+
+  wrap.innerHTML = `
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>比較項目</th>
+          ${headCols}
+        </tr>
+      </thead>
+      <tbody>
+        ${rows.map(r => `<tr><td>${r.label}</td>${r.cells}</tr>`).join("")}
+      </tbody>
+    </table>
+  `;
+}
+
+function updateFridgeUI() {
+  const filtered = getFilteredFridges();
+  document.getElementById("fridgeResultCount").textContent = `顯示 ${filtered.length} / 7 款電冰箱（點擊圖片可放大檢視）`;
+  renderFridgeCards(filtered);
+  renderFridgeTable(filtered);
+}
+
+function setFridgeBrand(brand, btn) {
+  currentFridgeBrand = brand;
+  document.querySelectorAll("#fridgeBrandFilters .chip").forEach(c => c.classList.remove("active"));
+  btn.classList.add("active");
+  updateFridgeUI();
+}
+
+function setFridgeFilter(cond, btn) {
+  currentFridgeFilter = cond;
+  document.querySelectorAll("#fridgeDepthFilters .chip").forEach(c => c.classList.remove("active"));
+  btn.classList.add("active");
+  updateFridgeUI();
+}
+
+function switchFridgeView(view) {
+  currentFridgeView = view;
+  const cardsEl = document.getElementById("fridgeCardsContainer");
+  const tableEl = document.getElementById("fridgeTableContainer");
+  const btnCard = document.getElementById("btnFridgeCardView");
+  const btnTable = document.getElementById("btnFridgeTableView");
+
+  if (view === "card") {
+    cardsEl.style.display = "grid";
+    tableEl.classList.remove("active");
+    btnCard.classList.add("active");
+    btnTable.classList.remove("active");
+  } else {
+    cardsEl.style.display = "none";
+    tableEl.classList.add("active");
+    btnCard.classList.remove("active");
+    btnTable.classList.add("active");
+  }
+}
+
+function openSingleLightbox(url, title, fallbackUrl) {
+  lbPhotos = [{ url: url, cap: title }];
+  lbIndex = 0;
+  lbTitle = title;
+  lbFallback = fallbackUrl;
+  document.getElementById("lightboxNav").style.display = "none";
+  const img = document.getElementById("lightboxImg");
+  img.onerror = function() { this.onerror = null; this.src = fallbackUrl; };
+  img.src = url;
+  document.getElementById("lightboxCap").textContent = title;
+  document.getElementById("lightbox").classList.add("open");
+}
+
+function checkFridgeFit() {
+  const w = parseFloat(document.getElementById("spaceW").value) || 0;
+  const d = parseFloat(document.getElementById("spaceD").value) || 0;
+  const h = parseFloat(document.getElementById("spaceH").value) || 0;
+
+  const container = document.getElementById("fitResultList");
+  container.innerHTML = fridgesData.map(f => {
+    // Minimum side clearance: 0.5cm each side (1cm total) for JP 6-door, 2cm each side (4cm total) for 4-door
+    const sideMargin = f.doorType === "sixdoor" ? 1.0 : 4.0;
+    const topMargin = 5.0;
+    const fitW = w >= (f.dimW + sideMargin);
+    const fitD = d >= f.dimD;
+    const fitH = h >= (f.dimH + topMargin);
+
+    let statusBadge = "";
+    let note = "";
+    if (fitW && fitH && fitD) {
+      statusBadge = `<span style="color:#1E7E34;font-weight:700;">✅ 完美放入</span>`;
+      note = `寬餘 ${(w - f.dimW).toFixed(1)}cm、深餘 ${(d - f.dimD).toFixed(1)}cm`;
+    } else if (fitW && fitH && !fitD) {
+      statusBadge = `<span style="color:#B45309;font-weight:700;">⚠️ 機身會突出</span>`;
+      note = `寬高符合，但深度超出預留 ${(f.dimD - d).toFixed(1)}cm`;
+    } else {
+      statusBadge = `<span style="color:#C82333;font-weight:700;">❌ 空間不足</span>`;
+      const issues = [];
+      if (!fitW) issues.push(`寬需 ≥ ${(f.dimW + sideMargin).toFixed(1)}cm`);
+      if (!fitH) issues.push(`高需 ≥ ${(f.dimH + topMargin).toFixed(1)}cm`);
+      note = issues.join("、");
+    }
+
+    return `<div style="display:flex;justify-content:space-between;align-items:center;padding:6px 10px;background:#FAF9F7;border-radius:8px;border:1px solid #EFECE6;">
+      <div><strong>${f.model}</strong> <span style="color:var(--muted);font-size:11px;">(${f.dimW}×${f.dimD}×${f.dimH})</span></div>
+      <div style="text-align:right;">${statusBadge}<div style="font-size:11px;color:var(--muted);">${note}</div></div>
+    </div>`;
+  }).join("");
+}
+
+// Initialize both pages
 initCalculator();
 updateUI();
+updateFridgeUI();
+checkFridgeFit();
 </script>
 </body>
 </html>
